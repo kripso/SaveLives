@@ -1,6 +1,7 @@
 package Controller;
 
 import View.LoginScreen;
+import View.RegistrationScreen;
 import View.UserScreen;
 import javafx.stage.Stage;
 
@@ -11,11 +12,13 @@ public class Controller {
 
     }
 
-    public static void SetScene(String ActiveScene) throws Exception {
-        if (ActiveScene == "LoginScene") {
+    public static void SetScene(String SetActiveScene) throws Exception {
+        if (SetActiveScene == "UserScene") {
             new UserScreen(PrimaryStage);
-        } else if (ActiveScene == "UserScene") {
+        } else if (SetActiveScene == "LoginScene") {
             new LoginScreen(PrimaryStage);
+        } else if (SetActiveScene == "RegistrationScene") {
+            new RegistrationScreen(PrimaryStage);
         }
     }
 

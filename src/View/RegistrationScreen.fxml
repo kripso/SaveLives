@@ -5,14 +5,13 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.LoginController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.RegistrationController">
    <children>
       <Pane fx:id="Highlight" layoutX="200.0" layoutY="100.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: lightgray" />
-      <Button layoutX="270.0" layoutY="265.0" mnemonicParsing="false" onAction="#LoginPressed" text="Sign in" />
+      <Button layoutX="265.0" layoutY="265.0" mnemonicParsing="false" onAction="#RegisterPressed" text="Register" />
       <Label layoutX="215.0" layoutY="120.0" text="Username" />
       <TextField fx:id="Username" layoutX="215.0" layoutY="140.0" />
       <Label layoutX="217.0" layoutY="180.0" text="Password" />
       <TextField fx:id="Password" layoutX="215.0" layoutY="200.0" />
-      <Label fx:id="Registration" layoutX="243.0" layoutY="240.0" onMouseClicked="#Registration" onMouseEntered="#MouseEntered" onMouseExited="#MouseExited" text="Create an account" underline="true" />
    </children>
 </Pane>

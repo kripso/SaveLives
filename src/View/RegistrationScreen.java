@@ -7,22 +7,21 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 
-public class LoginScreen extends Parent {
-
+public class RegistrationScreen extends Parent {
 
     public TextField Password;
     public TextField Username;
 
 
-    public LoginScreen(Stage PrimaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("LoginScreen.fxml"));
+    public RegistrationScreen(Stage PrimaryStage) throws Exception{
+        Parent root = FXMLLoader.load(getClass().getResource("RegistrationScreen.fxml"));
         Scene scene = new Scene(root);
 
         PrimaryStage.setScene(scene);
         PrimaryStage.show();
     }
     public static String getscene(){
-        return "LoginScene";
+        return "RegistrationScene";
     }
 
     public TextField getPassword() {
