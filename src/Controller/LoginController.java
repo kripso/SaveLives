@@ -17,8 +17,8 @@ import java.util.ArrayList;
 public class LoginController {
 
     public Label Registration;
-    public PasswordField Password;
-    public TextField Username;
+    public PasswordField PasswordTxtF;
+    public TextField UsernameTxtF;
 
     ArrayList<User> users;
     GetUserInfo userInfo = new GetUserInfo();
@@ -28,7 +28,7 @@ public class LoginController {
     }
 
     public void LoginPressed() throws Exception {
-        User user = GetUser(Username.getText(), Password.getText());
+        User user = GetUser(UsernameTxtF.getText(), PasswordTxtF.getText());
         if (user != null) {
             new UserController();
             Data.getInstance().user = user;

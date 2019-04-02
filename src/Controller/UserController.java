@@ -12,17 +12,18 @@ import javafx.scene.control.TextField;
 public class UserController {
 
 
-    public TextField Username;
-    public TextField Password;
-    public TextField Occupation;
+    public TextField UsernameTxtF;
+    public TextField PasswordTxtF;
+    public TextField OccupationTxtF;
 
     public UserController(){
 
     }
     @FXML
     public void initialize(){
-        Username.setText(Data.getInstance().user.getUserName());
-        Password.setText(Data.getInstance().user.getPassword());
+        UsernameTxtF.setText(Data.getInstance().user.getUserName());
+        PasswordTxtF.setText(Data.getInstance().user.getPassword());
+        OccupationTxtF.setText(Data.getInstance().user.getOccupation());
     }
 
     public void LogoutPressed() throws Exception {
