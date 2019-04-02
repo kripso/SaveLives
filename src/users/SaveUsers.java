@@ -1,20 +1,18 @@
 package users;
 
-import Model.UserModel;
+import Model.User;
 
-import javax.xml.crypto.Data;
-import java.io.*;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 public class SaveUsers {
 
-    public static void users(ArrayList<UserModel> users) throws ClassNotFoundException, IOException {
-
-        ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("d.out"));
+    public static void users(ArrayList<User> users) throws ClassNotFoundException, IOException {
+        ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("UserInfo.out"));
         out.writeObject(users);
         out.close();
-
-
     }
 
 }

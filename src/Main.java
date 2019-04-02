@@ -1,10 +1,12 @@
 import Controller.Controller;
+import Database.Data;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
 public class Main extends Application {
 
     public void start(Stage PrimaryStage) throws Exception{
+        new Controller();
         Controller.SetScene();
     }
 

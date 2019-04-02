@@ -1,15 +1,21 @@
 package Controller;
 
+import Database.Data;
 import View.LoginScreen;
 import View.RegistrationScreen;
 import View.UserScreen;
 import javafx.stage.Stage;
+import users.SaveUsers;
+import users.UsersGenerator;
+
+import java.io.IOException;
 
 public class Controller {
     private static Stage PrimaryStage = new Stage();
 
-    public Controller() {
-
+    public Controller() throws IOException, ClassNotFoundException {
+        UsersGenerator usersGenerator = new UsersGenerator();
+        SaveUsers.users(usersGenerator.generate());
     }
 
     public static void SetScene(String SetActiveScene) throws Exception {
