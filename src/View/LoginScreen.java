@@ -9,10 +9,8 @@ import javafx.stage.Stage;
 
 public class LoginScreen extends Parent {
 
-
     public TextField Password;
     public TextField Username;
-
 
     public LoginScreen(Stage PrimaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("LoginScreen.fxml"));

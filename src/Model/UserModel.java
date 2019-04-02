@@ -1,4 +1,6 @@
 package Model;
 
-public class UserModel {
+import java.io.Serializable;
+
+public class UserModel implements Serializable {
 }
