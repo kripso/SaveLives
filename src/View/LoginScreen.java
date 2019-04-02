@@ -6,7 +6,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 
-public class LoginScreen extends Parent {
+public class LoginScreen{
 
     public LoginScreen(Stage PrimaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("LoginScreen.fxml"));

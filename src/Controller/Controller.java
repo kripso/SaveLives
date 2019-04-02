@@ -2,6 +2,7 @@ package Controller;
 
 import Database.Data;
 import View.LoginScreen;
+import View.NurseScreen;
 import View.RegistrationScreen;
 import View.UserScreen;
 import javafx.stage.Stage;
@@ -21,6 +22,8 @@ public class Controller {
     public static void SetScene(String SetActiveScene) throws Exception {
         if (SetActiveScene == "UserScene") {
             new UserScreen(PrimaryStage);
+        } else if (SetActiveScene == "NurseScene") {
+            new NurseScreen(PrimaryStage);
         } else if (SetActiveScene == "LoginScene") {
             new LoginScreen(PrimaryStage);
         } else if (SetActiveScene == "RegistrationScene") {

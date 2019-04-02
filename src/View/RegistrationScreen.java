@@ -7,7 +7,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 
-public class RegistrationScreen extends Parent {
+public class RegistrationScreen{
 
     public RegistrationScreen(Stage PrimaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("RegistrationScreen.fxml"));

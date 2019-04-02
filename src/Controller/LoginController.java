@@ -2,6 +2,7 @@ package Controller;
 
 import Database.Data;
 import Model.User;
+import View.NurseScreen;
 import View.RegistrationScreen;
 import View.UserScreen;
 import javafx.scene.control.Label;
@@ -32,7 +33,11 @@ public class LoginController {
         if (user != null) {
             new UserController();
             Data.getInstance().user = user;
-            Controller.SetScene(UserScreen.getscene());
+            if (user.getOccupation().equals("Nurse")){
+                Controller.SetScene(NurseScreen.getscene());
+            }else {
+                Controller.SetScene(UserScreen.getscene());
+            }
         }
     }
 
