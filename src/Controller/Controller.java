@@ -1,10 +1,7 @@
 package Controller;
 
 import Database.Data;
-import View.LoginScreen;
-import View.NurseScreen;
-import View.RegistrationScreen;
-import View.UserScreen;
+import View.*;
 import javafx.stage.Stage;
 import users.SaveUsers;
 import users.UsersGenerator;
@@ -24,6 +21,8 @@ public class Controller {
             new UserScreen(PrimaryStage);
         } else if (SetActiveScene == "NurseScene") {
             new NurseScreen(PrimaryStage);
+        } else if (SetActiveScene == "DoctorScene") {
+            new DoctorScreen(PrimaryStage);
         } else if (SetActiveScene == "LoginScene") {
             new LoginScreen(PrimaryStage);
         } else if (SetActiveScene == "RegistrationScene") {

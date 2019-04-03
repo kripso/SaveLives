@@ -2,6 +2,7 @@ package Controller;
 
 import Database.Data;
 import Model.User;
+import View.DoctorScreen;
 import View.LoginScreen;
 import View.NurseScreen;
 import View.UserScreen;
@@ -34,17 +35,16 @@ public class RegistrationController {
             User user = new User(UsernameTxtF.getText(),PasswordTxtF.getText(),OccupationTxtF.getText(),DonorChecked.isSelected());
             SaveUsers.users(user);
             Data.getInstance().user = user;
+
             if(OccupationTxtF.getText().equals("Nurse")){
                 Controller.SetScene(NurseScreen.getscene());
+            }else if(OccupationTxtF.getText().equals("Doctor")){
+                Controller.SetScene(DoctorScreen.getscene());
             }else {
                 Controller.SetScene(UserScreen.getscene());
             }
         }
 
-    }
-
-    public void Registration(MouseEvent mouseEvent) {
-        System.out.println("ahoj");
     }
 
     public void LoginPressed(ActionEvent actionEvent) throws Exception {

@@ -2,6 +2,7 @@ package Controller;
 
 import Database.Data;
 import Model.User;
+import View.DoctorScreen;
 import View.NurseScreen;
 import View.RegistrationScreen;
 import View.UserScreen;
@@ -35,6 +36,8 @@ public class LoginController {
             Data.getInstance().user = user;
             if (user.getOccupation().equals("Nurse")){
                 Controller.SetScene(NurseScreen.getscene());
+            }else if (user.getOccupation().equals("Doctor")){
+                Controller.SetScene(DoctorScreen.getscene());
             }else {
                 Controller.SetScene(UserScreen.getscene());
             }
