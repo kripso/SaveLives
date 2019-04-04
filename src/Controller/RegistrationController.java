@@ -20,7 +20,7 @@ public class RegistrationController {
 
 
     public TextField UsernameTxtF;
-    public TextField PasswordTxtF;
+    public PasswordField PasswordTxtF;
     public TextField OccupationTxtF;
     public CheckBox DonorChecked;
 

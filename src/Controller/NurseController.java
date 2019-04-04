@@ -23,7 +23,7 @@ public class NurseController extends UserController {
     public Tab UserTab;
 
     public NurseController(){
-        System.out.println("ahoj");
+        System.out.println("ahojNurse");
     }
 
 }
