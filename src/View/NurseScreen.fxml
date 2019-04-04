@@ -8,20 +8,24 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.Pane?>
 
-<TabPane fx:id="TabPane" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.NurseController">
+<TabPane fx:id="TabPane" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.NurseController">
    <tabs>
       <Tab fx:id="UserTab" text="User tab">
          <content>
             <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0">
                <children>
-                  <Button layoutX="611.0" layoutY="600.0" mnemonicParsing="false" onAction="#LogoutPressed" text="Sign Out" />
-                  <TextField fx:id="UsernameTxtF" layoutX="50.0" layoutY="61.0" />
-                  <TextField fx:id="PasswordTxtF" layoutX="50.0" layoutY="121.0" />
-                  <TextField fx:id="OccupationTxtF" layoutX="50.0" layoutY="183.0" />
-                  <Label layoutX="50.0" layoutY="44.0" text="Username" />
-                  <Label layoutX="50.0" layoutY="104.0" text="Password" />
-                  <Label layoutX="51.0" layoutY="166.0" text="Occupation" />
-                  <CheckBox fx:id="DonorCheckBox" layoutX="103.0" layoutY="233.0" mnemonicParsing="false" onAction="#DonorCheckBoxChecked" text="donor" />
+                  <Pane layoutX="557.0" layoutY="257.0">
+                     <children>
+                        <TextField fx:id="UsernameTxtF" layoutY="17.0" />
+                        <TextField fx:id="PasswordTxtF" layoutY="77.0" />
+                        <TextField fx:id="OccupationTxtF" layoutY="139.0" />
+                        <Label text="Username" />
+                        <Label layoutY="60.0" text="Password" />
+                        <Label layoutX="1.0" layoutY="122.0" text="Occupation" />
+                        <CheckBox fx:id="DonorCheckBox" layoutX="53.0" layoutY="189.0" mnemonicParsing="false" onAction="#DonorCheckBoxChecked" text="donor" />
+                     </children>
+                  </Pane>
+                  <Button layoutX="604.0" layoutY="543.0" mnemonicParsing="false" onAction="#LogoutPressed" text="Sign Out" />
                </children>
             </Pane>
          </content>
@@ -30,7 +34,7 @@
          <content>
             <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0">
                <children>
-                  <Pane fx:id="DonorPane1" layoutX="39.0" layoutY="34.0" prefHeight="340.0" prefWidth="168.0">
+                  <Pane fx:id="DonorPane1" layoutX="556.0" layoutY="190.0" prefHeight="340.0" prefWidth="168.0">
                      <children>
                         <TextField fx:id="Adress1" layoutX="1.0" layoutY="140.0" />
                         <TextField fx:id="Email1" layoutX="1.0" layoutY="200.0" />
@@ -43,6 +47,46 @@
                         <Label layoutX="1.0" text="Name" />
                         <Label layoutX="1.0" layoutY="60.0" text="Surname" />
                         <Button layoutX="26.0" layoutY="307.0" mnemonicParsing="false" text="Add information" />
+                     </children>
+                  </Pane>
+               </children>
+            </Pane>
+         </content>
+      </Tab>
+      <Tab fx:id="DonorTab1" text="Donor inf.">
+         <content>
+            <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0">
+               <children>
+                  <Pane fx:id="DonorPane11" layoutX="556.0" layoutY="234.0" prefHeight="252.0" prefWidth="168.0">
+                     <children>
+                        <TextField fx:id="Adress11" layoutX="1.0" layoutY="140.0" />
+                        <TextField fx:id="Name11" layoutX="1.0" layoutY="17.0" />
+                        <TextField fx:id="Surname11" layoutX="1.0" layoutY="77.0" />
+                        <Label layoutX="1.0" layoutY="122.0" text="Bone marrow (HLA)" />
+                        <Label layoutX="1.0" text="Blood type" />
+                        <Label layoutX="1.0" layoutY="60.0" text="Plasma RHD" />
+                        <Button layoutX="26.0" layoutY="194.0" mnemonicParsing="false" text="Add information" />
+                     </children>
+                  </Pane>
+               </children>
+            </Pane>
+         </content>
+      </Tab>
+      <Tab fx:id="DonorTab11" text="Add donor inf.">
+         <content>
+            <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0">
+               <children>
+                  <Pane fx:id="DonorPane111" layoutX="556.0" layoutY="202.0" prefHeight="317.0" prefWidth="168.0">
+                     <children>
+                        <TextField fx:id="Adress111" layoutX="1.0" layoutY="222.0" />
+                        <TextField fx:id="Name111" layoutX="1.0" layoutY="99.0" />
+                        <TextField fx:id="Surname111" layoutX="1.0" layoutY="159.0" />
+                        <Label layoutX="1.0" layoutY="204.0" text="Bone marrow (HLA)" />
+                        <Label layoutX="1.0" layoutY="82.0" text="Blood type" />
+                        <Label layoutX="1.0" layoutY="142.0" text="Plasma RHD" />
+                        <Button layoutX="26.0" layoutY="276.0" mnemonicParsing="false" text="Add information" />
+                        <TextField fx:id="UsernameTxtF1" layoutY="38.0" />
+                        <Label layoutY="21.0" text="Username" />
                      </children>
                   </Pane>
                </children>
