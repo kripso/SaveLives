@@ -41,7 +41,7 @@
                         <TextField fx:id="Adress1" layoutX="1.0" layoutY="140.0" />
                         <TextField fx:id="Email1" layoutX="1.0" layoutY="200.0" />
                         <TextField fx:id="PhoneNumber1" layoutX="1.0" layoutY="262.0" />
-                        <Label layoutX="1.0" layoutY="122.0" text="Adress" />
+                        <Label layoutX="1.0" layoutY="122.0" text="Address" />
                         <Label layoutY="245.0" text="Phone mumber" />
                         <Label layoutY="183.0" text="Email" />
                         <TextField fx:id="Name1" layoutX="1.0" layoutY="17.0" />

@@ -8,7 +8,7 @@ public class Doctor extends Nurse {
     private boolean donor;
 
     public Doctor(String userName, String password, String occupation, boolean donor) {
-        super(userName,password,occupation,donor);
+        super(userName, password, occupation, donor);
     }
 
 }

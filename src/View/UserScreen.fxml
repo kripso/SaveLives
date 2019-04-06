@@ -36,17 +36,17 @@
                <children>
                   <Pane fx:id="DonorPane" layoutX="556.0" layoutY="190.0" prefHeight="340.0" prefWidth="168.0">
                      <children>
-                        <TextField fx:id="Adress" layoutX="1.0" layoutY="140.0" />
+                        <TextField fx:id="Address" layoutX="1.0" layoutY="140.0" />
                         <TextField fx:id="Email" layoutX="1.0" layoutY="200.0" />
                         <TextField fx:id="PhoneNumber" layoutX="1.0" layoutY="262.0" />
-                        <Label layoutX="1.0" layoutY="122.0" text="Adress" />
+                        <Label layoutX="1.0" layoutY="122.0" text="Address" />
                         <Label layoutY="245.0" text="Phone mumber" />
                         <Label layoutY="183.0" text="Email" />
                         <TextField fx:id="Name" layoutX="1.0" layoutY="17.0" />
                         <TextField fx:id="Surname" layoutX="1.0" layoutY="77.0" />
                         <Label layoutX="1.0" text="Name" />
                         <Label layoutX="1.0" layoutY="60.0" text="Surname" />
-                        <Button layoutX="26.0" layoutY="307.0" mnemonicParsing="false" text="Add information" />
+                        <Button layoutX="26.0" layoutY="307.0" mnemonicParsing="false" onAction="#addInformationPressed" text="Add information" />
                      </children>
                   </Pane>
                </children>

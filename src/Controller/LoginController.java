@@ -2,6 +2,8 @@ package Controller;
 
 import Database.Data;
 import Model.AbstractUser;
+import Model.Doctor;
+import Model.Donor;
 import Model.User;
 import View.DoctorScreen;
 import View.NurseScreen;
@@ -13,6 +15,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
+import users.GetDonorInfo;
 import users.GetUserInfo;
 
 import java.io.IOException;
@@ -24,17 +27,24 @@ public class LoginController {
     public PasswordField PasswordTxtF;
     public TextField UsernameTxtF;
 
-    ArrayList<AbstractUser> user;
+    ArrayList<AbstractUser> users;
+    ArrayList<Donor> donors;
+
     GetUserInfo userInfo = new GetUserInfo();
+    GetDonorInfo donorInfo = new GetDonorInfo();
 
     public LoginController() throws IOException, ClassNotFoundException {
-        user = userInfo.users();
+        users = userInfo.users();
+        donors = donorInfo.users();
     }
 
     public void LoginPressed() throws Exception {
-        AbstractUser user = GetUser(UsernameTxtF.getText(), PasswordTxtF.getText());
+        AbstractUser user = getUser(UsernameTxtF.getText(), PasswordTxtF.getText());
+        Donor donor = getDonor(UsernameTxtF.getText());
         if (user != null) {
+
             Data.getInstance().abstractUser = user;
+            Data.getInstance().donor = donor;
 
             if (user.getOccupation().equals("Nurse")){
                 Controller.SetScene(NurseScreen.getscene());
@@ -46,15 +56,22 @@ public class LoginController {
         }
     }
 
-    public AbstractUser GetUser(String userName, String password) {
-        for (AbstractUser abstractUser : user) {
+    public AbstractUser getUser(String userName, String password) {
+        for (AbstractUser abstractUser : users) {
             if (abstractUser.getUserName().equals(userName) && abstractUser.getPassword().equals(password)) {
                 return abstractUser;
             }
         }
         return null;
     }
-
+    public Donor getDonor(String userName) {
+        for (Donor donor : donors) {
+            if (donor.getUserName().equals(userName)) {
+                return donor;
+            }
+        }
+        return null;
+    }
     public void Registration(MouseEvent mouseEvent) throws Exception {
         Controller.SetScene(RegistrationScreen.getscene());
     }

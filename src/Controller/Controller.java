@@ -3,6 +3,8 @@ package Controller;
 import Database.Data;
 import View.*;
 import javafx.stage.Stage;
+import users.DonorGenerator;
+import users.SaveDonors;
 import users.SaveUsers;
 import users.UsersGenerator;
 
@@ -13,7 +15,9 @@ public class Controller {
 
     public Controller() throws IOException, ClassNotFoundException {
         UsersGenerator usersGenerator = new UsersGenerator();
+        DonorGenerator donorGenerator = new DonorGenerator();
         SaveUsers.users(usersGenerator.generate());
+        SaveDonors.donors(donorGenerator.generate());
     }
 
     public static void SetScene(String SetActiveScene) throws Exception {

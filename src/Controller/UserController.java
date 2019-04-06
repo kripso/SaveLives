@@ -2,26 +2,35 @@ package Controller;
 
 import Database.Data;
 import Model.AbstractUser;
+import Model.Donor;
 import Model.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import users.SaveDonors;
 import users.SaveUsers;
 
 import java.io.IOException;
 
 public class UserController {
 
+    public javafx.scene.control.TabPane TabPane;
 
     public TextField UsernameTxtF;
     public TextField PasswordTxtF;
     public TextField OccupationTxtF;
     public CheckBox DonorCheckBox;
     public Tab DonorTab;
-    public javafx.scene.control.TabPane TabPane;
     public Tab UserTab;
 
-    User user = (User) Data.getInstance().abstractUser;
+    public TextField Address;
+    public TextField Email;
+    public TextField PhoneNumber;
+    public TextField Name;
+    public TextField Surname;
+
+    private User user = (User) Data.getInstance().abstractUser;
+    private Donor donor = (Donor) Data.getInstance().donor;
 
     public UserController(){
 
@@ -32,6 +41,12 @@ public class UserController {
         PasswordTxtF.setText(user.getPassword());
         OccupationTxtF.setText(user.getOccupation());
         DonorCheckBox.setSelected(user.getDonor());
+
+        Name.setText(donor.getName());
+        Surname.setText(donor.getSurname());
+        Address.setText(donor.getAddress());
+        Email.setText(donor.getEmail());
+        PhoneNumber.setText(donor.getPhoneNum());
 
         UserTab.setClosable(false);
 
@@ -75,4 +90,9 @@ public class UserController {
         SaveUsers.users(user);
     }
 
+    public void addInformationPressed(ActionEvent actionEvent) throws IOException, ClassNotFoundException {
+        Donor donor = new Donor(Data.getInstance().abstractUser.getUserName(),Name.getText(),Surname.getText(),Address.getText(),Email.getText(),PhoneNumber.getText());
+        SaveDonors.donors(donor);
+        Data.getInstance().donor=donor;
+    }
 }

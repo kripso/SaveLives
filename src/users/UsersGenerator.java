@@ -1,6 +1,7 @@
 package users;
 
 import Model.AbstractUser;
+import Model.Donor;
 import Model.User;
 
 import java.util.ArrayList;
@@ -15,7 +16,7 @@ public class UsersGenerator {
     public ArrayList<AbstractUser> generate() {
         ArrayList<AbstractUser> abstractUsers = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
-            AbstractUser abstractUser = new User(username[i], password,ocupation[i],true);
+            AbstractUser abstractUser = new User(username[i], password, ocupation[i],true);
             abstractUsers.add(abstractUser);
         }
         return abstractUsers;

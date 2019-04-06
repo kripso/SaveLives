@@ -17,6 +17,7 @@ public abstract class AbstractUser implements Serializable {
         this.donor = donor;
     }
 
+
     public void setUser(AbstractUser user){
         this.userName = user.userName;
         this.password = user.password;

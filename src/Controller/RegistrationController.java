@@ -2,6 +2,7 @@ package Controller;
 
 import Database.Data;
 import Model.AbstractUser;
+import Model.Donor;
 import Model.User;
 import View.DoctorScreen;
 import View.LoginScreen;
