@@ -1,10 +1,10 @@
 package Database;
 
-import Model.User;
+import Model.AbstractUser;
 
 public class Data {
     private static Data ourInstance = new Data();
-    public User user;
+    public AbstractUser abstractUser;
     public static Data getInstance() {
         return ourInstance;
     }

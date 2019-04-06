@@ -1,36 +1,38 @@
 package users;
 
-import Model.User;
+import Model.AbstractUser;
 
 import java.io.*;
 import java.util.ArrayList;
 
 public class SaveUsers {
 
-    public static void users(ArrayList<User> users) throws IOException {
+    public static void users(ArrayList<AbstractUser> abstractUsers) throws IOException {
         ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("UserInfo.out"));
-        out.writeObject(users);
+        out.writeObject(abstractUsers);
         out.close();
     }
-    public static void users(User user) throws ClassNotFoundException, IOException {
+
+    public static void users(AbstractUser abstractUser) throws ClassNotFoundException, IOException {
         ObjectInputStream in = new ObjectInputStream(new FileInputStream("UserInfo.out"));
 
-        ArrayList<User> users = (ArrayList<User>) in.readObject();
-        users.add(user);
+        ArrayList<AbstractUser> abstractUsers = (ArrayList<AbstractUser>) in.readObject();
+        abstractUsers.add(abstractUser);
         in.close();
 
         ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("UserInfo.out"));
-        out.writeObject(users);
+        out.writeObject(abstractUsers);
         out.close();
     }
-    public static void users(User user,boolean donor) throws ClassNotFoundException, IOException {
+
+    public static void updateUserInfo(AbstractUser currentUser) throws ClassNotFoundException, IOException {
         ObjectInputStream in = new ObjectInputStream(new FileInputStream("UserInfo.out"));
 
-        ArrayList<User> users = (ArrayList<User>) in.readObject();
+        ArrayList<AbstractUser> users = (ArrayList<AbstractUser>) in.readObject();
 
-        for (User userName : users) {
-            if (user.getUserName().equals(userName.getUserName())){
-                userName.setDonor(donor);
+        for (AbstractUser abstractUser : users) {
+            if (currentUser.getUserName().equals(abstractUser.getUserName())){
+                abstractUser.setUser(currentUser);
             }
         }
         in.close();
