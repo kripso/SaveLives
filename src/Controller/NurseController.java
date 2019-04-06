@@ -13,17 +13,16 @@ import java.io.IOException;
 
 public class NurseController extends UserController {
 
-
+    public javafx.scene.control.TabPane TabPane;
     public TextField UsernameTxtF;
     public TextField PasswordTxtF;
     public TextField OccupationTxtF;
     public CheckBox DonorCheckBox;
     public Tab DonorTab;
-    public javafx.scene.control.TabPane TabPane;
     public Tab UserTab;
 
     public NurseController(){
-        System.out.println("ahojNurse");
+
     }
 
 }

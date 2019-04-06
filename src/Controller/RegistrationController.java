@@ -1,6 +1,7 @@
 package Controller;
 
 import Database.Data;
+import Model.AbstractUser;
 import Model.User;
 import View.DoctorScreen;
 import View.LoginScreen;
@@ -8,11 +9,8 @@ import View.NurseScreen;
 import View.UserScreen;
 import javafx.event.ActionEvent;
 import javafx.scene.control.CheckBox;
-import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.paint.Color;
 import users.GetUserInfo;
 import users.SaveUsers;
 
@@ -34,7 +32,7 @@ public class RegistrationController {
         if(!UsernameTxtF.getText().equals("")&&!PasswordTxtF.getText().equals("")&&!OccupationTxtF.getText().equals("")){
             User user = new User(UsernameTxtF.getText(),PasswordTxtF.getText(),OccupationTxtF.getText(),DonorChecked.isSelected());
             SaveUsers.users(user);
-            Data.getInstance().user = user;
+            Data.getInstance().abstractUser = user;
 
             if(OccupationTxtF.getText().equals("Nurse")){
                 Controller.SetScene(NurseScreen.getscene());
