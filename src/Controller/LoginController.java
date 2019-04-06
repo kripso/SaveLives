@@ -1,11 +1,13 @@
 package Controller;
 
 import Database.Data;
+import Model.AbstractUser;
 import Model.User;
 import View.DoctorScreen;
 import View.NurseScreen;
 import View.RegistrationScreen;
 import View.UserScreen;
+import javafx.event.ActionEvent;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -22,18 +24,18 @@ public class LoginController {
     public PasswordField PasswordTxtF;
     public TextField UsernameTxtF;
 
-    ArrayList<User> users;
+    ArrayList<AbstractUser> user;
     GetUserInfo userInfo = new GetUserInfo();
 
     public LoginController() throws IOException, ClassNotFoundException {
-        users = userInfo.users();
+        user = userInfo.users();
     }
 
     public void LoginPressed() throws Exception {
-        User user = GetUser(UsernameTxtF.getText(), PasswordTxtF.getText());
+        AbstractUser user = GetUser(UsernameTxtF.getText(), PasswordTxtF.getText());
         if (user != null) {
-            new UserController();
-            Data.getInstance().user = user;
+            Data.getInstance().abstractUser = user;
+
             if (user.getOccupation().equals("Nurse")){
                 Controller.SetScene(NurseScreen.getscene());
             }else if (user.getOccupation().equals("Doctor")){
@@ -44,10 +46,10 @@ public class LoginController {
         }
     }
 
-    public User GetUser(String userName, String password) {
-        for (User user : users) {
-            if (user.getUserName().equals(userName) && user.getPassword().equals(password)) {
-                return user;
+    public AbstractUser GetUser(String userName, String password) {
+        for (AbstractUser abstractUser : user) {
+            if (abstractUser.getUserName().equals(userName) && abstractUser.getPassword().equals(password)) {
+                return abstractUser;
             }
         }
         return null;
@@ -63,5 +65,9 @@ public class LoginController {
 
     public void MouseExited(MouseEvent mouseEvent) {
         Registration.setTextFill(Color.BLACK);
+    }
+
+    public void onEnter(ActionEvent actionEvent) throws Exception {
+        LoginPressed();
     }
 }
