@@ -32,20 +32,20 @@
             </Pane>
          </content>
       </Tab>
-      <Tab fx:id="DonorTab" text="Personal inf.">
+      <Tab fx:id="PersonalInfo" text="Personal inf.">
          <content>
             <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0">
                <children>
-                  <Pane fx:id="DonorPane1" layoutX="556.0" layoutY="190.0" prefHeight="340.0" prefWidth="168.0">
+                  <Pane fx:id="PersonalInfoPane" layoutX="556.0" layoutY="190.0" prefHeight="340.0" prefWidth="168.0">
                      <children>
-                        <TextField fx:id="Adress1" layoutX="1.0" layoutY="140.0" />
-                        <TextField fx:id="Email1" layoutX="1.0" layoutY="200.0" />
-                        <TextField fx:id="PhoneNumber1" layoutX="1.0" layoutY="262.0" />
+                        <TextField fx:id="Address" layoutX="1.0" layoutY="140.0" />
+                        <TextField fx:id="Email" layoutX="1.0" layoutY="200.0" />
+                        <TextField fx:id="PhoneNumber" layoutX="1.0" layoutY="262.0" />
                         <Label layoutX="1.0" layoutY="122.0" text="Address" />
-                        <Label layoutY="245.0" text="Phone mumber" />
+                        <Label layoutY="245.0" text="Phone number" />
                         <Label layoutY="183.0" text="Email" />
-                        <TextField fx:id="Name1" layoutX="1.0" layoutY="17.0" />
-                        <TextField fx:id="Surname1" layoutX="1.0" layoutY="77.0" />
+                        <TextField fx:id="Name" layoutX="1.0" layoutY="17.0" />
+                        <TextField fx:id="Surname" layoutX="1.0" layoutY="77.0" />
                         <Label layoutX="1.0" text="Name" />
                         <Label layoutX="1.0" layoutY="60.0" text="Surname" />
                         <Button layoutX="26.0" layoutY="307.0" mnemonicParsing="false" text="Add information" />
@@ -55,15 +55,15 @@
             </Pane>
          </content>
       </Tab>
-      <Tab fx:id="DonorTab1" text="Donor inf.">
+      <Tab fx:id="DonorInfoTab" text="Donor inf.">
          <content>
             <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0">
                <children>
-                  <Pane fx:id="DonorPane11" layoutX="556.0" layoutY="234.0" prefHeight="252.0" prefWidth="168.0">
+                  <Pane fx:id="DonorInfoPane" layoutX="556.0" layoutY="234.0" prefHeight="252.0" prefWidth="168.0">
                      <children>
-                        <TextField fx:id="Adress11" layoutX="1.0" layoutY="140.0" />
-                        <TextField fx:id="Name11" layoutX="1.0" layoutY="17.0" />
-                        <TextField fx:id="Surname11" layoutX="1.0" layoutY="77.0" />
+                        <TextField fx:id="BloodType" layoutX="1.0" layoutY="140.0" />
+                        <TextField fx:id="PlasmaRHD" layoutX="1.0" layoutY="17.0" />
+                        <TextField fx:id="BoneMarrowHLA" layoutX="1.0" layoutY="77.0" />
                         <Label layoutX="1.0" layoutY="122.0" text="Bone marrow (HLA)" />
                         <Label layoutX="1.0" text="Blood type" />
                         <Label layoutX="1.0" layoutY="60.0" text="Plasma RHD" />
@@ -74,20 +74,20 @@
             </Pane>
          </content>
       </Tab>
-      <Tab fx:id="DonorTab111" text="Add donor inf.">
+      <Tab fx:id="AddDonorInfoTab" text="Add donor inf.">
          <content>
             <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0">
                <children>
-                  <Pane fx:id="DonorPane1111" layoutX="556.0" layoutY="202.0" prefHeight="317.0" prefWidth="168.0">
+                  <Pane fx:id="AddDonorInfoPane" layoutX="556.0" layoutY="202.0" prefHeight="317.0" prefWidth="168.0">
                      <children>
-                        <TextField fx:id="Adress1111" layoutX="1.0" layoutY="222.0" />
-                        <TextField fx:id="Name1111" layoutX="1.0" layoutY="99.0" />
-                        <TextField fx:id="Surname1111" layoutX="1.0" layoutY="159.0" />
+                        <TextField fx:id="AddBloodType" layoutX="1.0" layoutY="222.0" />
+                        <TextField fx:id="AddPlasmaRHD" layoutX="1.0" layoutY="99.0" />
+                        <TextField fx:id="AddBoneMarrowHLA" layoutX="1.0" layoutY="159.0" />
                         <Label layoutX="1.0" layoutY="204.0" text="Bone marrow (HLA)" />
                         <Label layoutX="1.0" layoutY="82.0" text="Blood type" />
                         <Label layoutX="1.0" layoutY="142.0" text="Plasma RHD" />
                         <Button layoutX="26.0" layoutY="276.0" mnemonicParsing="false" text="Add information" />
-                        <TextField fx:id="UsernameTxtF1" layoutY="38.0" />
+                        <TextField fx:id="UsernameOfPatient" layoutY="38.0" />
                         <Label layoutY="21.0" text="Username" />
                      </children>
                   </Pane>
@@ -95,24 +95,24 @@
             </Pane>
          </content>
       </Tab>
-      <Tab fx:id="DonorTab11" text="Search">
+      <Tab fx:id="SearchDonorsTab" text="Search">
          <content>
             <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0">
                <children>
                   <TableView layoutX="249.0" layoutY="130.0" prefHeight="576.0" prefWidth="782.0">
                     <columns>
-                      <TableColumn prefWidth="128.0" text="Username" />
-                      <TableColumn prefWidth="310.0" text="Adress" />
+                        <TableColumn prefWidth="128.0" text="Username" />
+                        <TableColumn prefWidth="310.0" text="Adress" />
                         <TableColumn prefWidth="111.0" text="Blood type" />
                         <TableColumn prefWidth="99.0" text="Plasma RHD" />
                         <TableColumn prefWidth="133.0" text="Bone marrow (HLA)" />
                     </columns>
                   </TableView>
-                  <TextField layoutX="249.0" layoutY="92.0" prefHeight="27.0" prefWidth="128.0" promptText="Username" />
-                  <TextField layoutX="377.0" layoutY="92.0" prefHeight="27.0" prefWidth="310.0" promptText="Adress" />
-                  <TextField layoutX="687.0" layoutY="92.0" prefHeight="27.0" prefWidth="111.0" promptText="Blood type" />
-                  <TextField layoutX="798.0" layoutY="92.0" prefHeight="27.0" prefWidth="100.0" promptText="Plasma RHD" />
-                  <TextField layoutX="898.0" layoutY="92.0" prefHeight="27.0" prefWidth="132.0" promptText="Bone marrow (HLA)" />
+                  <TextField fx:id="findUserName" layoutX="249.0" layoutY="92.0" prefHeight="27.0" prefWidth="128.0" promptText="Username" />
+                  <TextField fx:id="findAddress" layoutX="377.0" layoutY="92.0" prefHeight="27.0" prefWidth="310.0" promptText="Address" />
+                  <TextField fx:id="findBloodType" layoutX="687.0" layoutY="92.0" prefHeight="27.0" prefWidth="111.0" promptText="Blood type" />
+                  <TextField fx:id="findPlasmaRHD" layoutX="798.0" layoutY="92.0" prefHeight="27.0" prefWidth="100.0" promptText="Plasma RHD" />
+                  <TextField fx:id="findBoneMarrowHLA" layoutX="898.0" layoutY="92.0" prefHeight="27.0" prefWidth="132.0" promptText="Bone marrow (HLA)" />
                </children>
             </Pane>
          </content>

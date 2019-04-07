@@ -13,6 +13,7 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import users.GetUserInfo;
+import users.SaveDonors;
 import users.SaveUsers;
 
 public class RegistrationController {
@@ -24,7 +25,6 @@ public class RegistrationController {
     public CheckBox DonorChecked;
 
 
-    GetUserInfo getUserInfo = new GetUserInfo();
     public RegistrationController(){
 
     }
@@ -32,8 +32,13 @@ public class RegistrationController {
     public void RegisterPressed() throws Exception {
         if(!UsernameTxtF.getText().equals("")&&!PasswordTxtF.getText().equals("")&&!OccupationTxtF.getText().equals("")){
             User user = new User(UsernameTxtF.getText(),PasswordTxtF.getText(),OccupationTxtF.getText(),DonorChecked.isSelected());
+            Donor donor = new Donor(UsernameTxtF.getText(),"","","","","");
+
             SaveUsers.users(user);
+            SaveDonors.donors(donor);
+
             Data.getInstance().abstractUser = user;
+            Data.getInstance().donor = donor;
 
             if(OccupationTxtF.getText().equals("Nurse")){
                 Controller.SetScene(NurseScreen.getscene());
