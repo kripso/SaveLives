@@ -12,8 +12,8 @@ public class DoctorController extends NurseController {
     public TextField PasswordTxtF;
     public TextField OccupationTxtF;
     public CheckBox DonorCheckBox;
-    public Tab DonorTab;
     public Tab UserTab;
+    public TextField Hospotal;
 
     public DoctorController(){
 

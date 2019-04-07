@@ -16,7 +16,7 @@
       <TextField fx:id="UsernameTxtF" layoutX="555.0" layoutY="245.0" prefHeight="30.0" prefWidth="170.0" />
       <PasswordField fx:id="PasswordTxtF" layoutX="555.0" layoutY="310.0" prefHeight="30.0" prefWidth="170.0" />
       <TextField fx:id="OccupationTxtF" layoutX="555.0" layoutY="375.0" prefHeight="30.0" prefWidth="170.0" />
-      <CheckBox fx:id="DonorChecked" alignment="CENTER" contentDisplay="TOP" layoutX="565.0" layoutY="416.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" text="Do you want to be&#10; a donor" textAlignment="CENTER" />
+      <CheckBox fx:id="DonorChecked" alignment="CENTER" contentDisplay="TOP" layoutX="565.0" layoutY="416.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" text="Do you want to be&#10; a personalInfo" textAlignment="CENTER" />
       <Button layoutX="655.0" layoutY="460.0" mnemonicParsing="false" onAction="#RegisterPressed" prefHeight="30.0" prefWidth="70.0" text="Register" />
       <Button layoutX="555.0" layoutY="460.0" mnemonicParsing="false" onAction="#LoginPressed" prefHeight="30.0" prefWidth="70.0" text="Log in" />
    </children>

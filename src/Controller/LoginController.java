@@ -2,9 +2,7 @@ package Controller;
 
 import Database.Data;
 import Model.AbstractUser;
-import Model.Doctor;
-import Model.Donor;
-import Model.User;
+import Model.PersonalInfo;
 import View.DoctorScreen;
 import View.NurseScreen;
 import View.RegistrationScreen;
@@ -15,7 +13,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
-import users.GetDonorInfo;
+import users.GetPersonalInfo;
 import users.GetUserInfo;
 
 import java.io.IOException;
@@ -28,23 +26,23 @@ public class LoginController {
     public TextField UsernameTxtF;
 
     ArrayList<AbstractUser> users;
-    ArrayList<Donor> donors;
+    ArrayList<PersonalInfo> personalInfos;
 
     GetUserInfo userInfo = new GetUserInfo();
-    GetDonorInfo donorInfo = new GetDonorInfo();
+    GetPersonalInfo personalInfo = new GetPersonalInfo();
 
     public LoginController() throws IOException, ClassNotFoundException {
         users = userInfo.users();
-        donors = donorInfo.users();
+        personalInfos = personalInfo.users();
     }
 
     public void LoginPressed() throws Exception {
         AbstractUser user = getUser(UsernameTxtF.getText(), PasswordTxtF.getText());
-        Donor donor = getDonor(UsernameTxtF.getText());
+        PersonalInfo personalInfo = getPersonalInfo(UsernameTxtF.getText());
         if (user != null) {
 
             Data.getInstance().abstractUser = user;
-            Data.getInstance().donor = donor;
+            Data.getInstance().personalInfo = personalInfo;
 
             if (user.getOccupation().equals("Nurse")){
                 Controller.SetScene(NurseScreen.getscene());
@@ -64,10 +62,10 @@ public class LoginController {
         }
         return null;
     }
-    public Donor getDonor(String userName) {
-        for (Donor donor : donors) {
-            if (donor.getUserName().equals(userName)) {
-                return donor;
+    public PersonalInfo getPersonalInfo(String userName) {
+        for (PersonalInfo personalInfo : personalInfos) {
+            if (personalInfo.getUserName().equals(userName)) {
+                return personalInfo;
             }
         }
         return null;

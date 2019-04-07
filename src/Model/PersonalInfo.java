@@ -2,7 +2,7 @@ package Model;
 
 import java.io.Serializable;
 
-public class Donor implements Serializable {
+public class PersonalInfo implements Serializable {
 
     private String userName;
     private String name;
@@ -10,8 +10,9 @@ public class Donor implements Serializable {
     private String address;
     private String email;
     private String phoneNum;
+    private String hospital;
 
-    public Donor(String userName,String name, String surname, String address,String email, String phoneNum) {
+    public PersonalInfo(String userName, String name, String surname, String address, String email, String phoneNum) {
         this.userName=userName;
         this.name=name;
         this.surname=surname;
@@ -20,17 +21,37 @@ public class Donor implements Serializable {
         this.phoneNum=phoneNum;
     }
 
-    public Donor(String userName) {
+    public PersonalInfo(String userName, String name, String surname, String address, String email, String phoneNum,String hospital) {
+        this.userName=userName;
+        this.name=name;
+        this.surname=surname;
+        this.address=address;
+        this.email=email;
+        this.phoneNum=phoneNum;
+        this.hospital=hospital;
+    }
+
+    public PersonalInfo(String userName) {
         this.userName=userName;
 
     }
-    public void setDonor(Donor donor){
-        this.userName = donor.userName;
-        this.name = donor.name;
-        this.surname = donor.surname;
-        this.address = donor.address;
-        this.email = donor.email;
-        this.phoneNum = donor.phoneNum;
+
+    public void setPersonalInfo(PersonalInfo personalInfo){
+        this.userName = personalInfo.userName;
+        this.name = personalInfo.name;
+        this.surname = personalInfo.surname;
+        this.address = personalInfo.address;
+        this.email = personalInfo.email;
+        this.phoneNum = personalInfo.phoneNum;
+        this.hospital = personalInfo.hospital;
+    }
+
+    public String getHospital() {
+        return hospital;
+    }
+
+    public void setHospital(String hospital) {
+        this.hospital = hospital;
     }
 
     public String getUserName() {

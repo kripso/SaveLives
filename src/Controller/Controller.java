@@ -1,10 +1,9 @@
 package Controller;
 
-import Database.Data;
 import View.*;
 import javafx.stage.Stage;
-import users.DonorGenerator;
-import users.SaveDonors;
+import users.PersonalInfoGenerator;
+import users.SavePersonalInfo;
 import users.SaveUsers;
 import users.UsersGenerator;
 
@@ -15,9 +14,9 @@ public class Controller {
 
     public Controller() throws IOException, ClassNotFoundException {
         UsersGenerator usersGenerator = new UsersGenerator();
-        DonorGenerator donorGenerator = new DonorGenerator();
+        PersonalInfoGenerator personalInfoGenerator = new PersonalInfoGenerator();
         SaveUsers.users(usersGenerator.generate());
-        SaveDonors.donors(donorGenerator.generate());
+        SavePersonalInfo.donors(personalInfoGenerator.generate(UsersGenerator.username));
     }
 
     public static void SetScene(String SetActiveScene) throws Exception {

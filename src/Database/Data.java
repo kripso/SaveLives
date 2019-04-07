@@ -1,12 +1,12 @@
 package Database;
 
 import Model.AbstractUser;
-import Model.Donor;
+import Model.PersonalInfo;
 
 public class Data {
     private static Data ourInstance = new Data();
     public AbstractUser abstractUser;
-    public Donor donor;
+    public PersonalInfo personalInfo;
     public static Data getInstance() {
         return ourInstance;
     }
