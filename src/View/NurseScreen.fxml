@@ -16,9 +16,9 @@
                <children>
                   <Pane layoutX="557.0" layoutY="257.0">
                      <children>
-                        <TextField fx:id="UsernameTxtF" layoutY="17.0" />
-                        <TextField fx:id="PasswordTxtF" layoutY="77.0" />
-                        <TextField fx:id="OccupationTxtF" layoutY="139.0" />
+                        <TextField fx:id="UsernameTxtF" layoutY="17.0" onAction="#usernameOnEnter" />
+                        <TextField fx:id="PasswordTxtF" layoutY="77.0" onAction="#passwordOnEnter" />
+                        <TextField fx:id="OccupationTxtF" layoutY="139.0" onAction="#occupationOnEnter" />
                         <Label text="Username" />
                         <Label layoutY="60.0" text="Password" />
                         <Label layoutX="1.0" layoutY="122.0" text="Occupation" />

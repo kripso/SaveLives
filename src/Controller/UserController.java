@@ -35,7 +35,7 @@ public class UserController {
 
     }
     @FXML
-    public void initialize(){
+    public void initialize() throws IOException, ClassNotFoundException {
         UsernameTxtF.setText(user.getUserName());
         PasswordTxtF.setText(user.getPassword());
         OccupationTxtF.setText(user.getOccupation());

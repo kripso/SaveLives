@@ -15,22 +15,25 @@ import java.io.IOException;
 
 public class NurseController extends UserController {
 
-    public TextField Address;
-    public TextField Email;
-    public TextField PhoneNumber;
-    public TextField Name;
-    public TextField Surname;
     public TextField Hospital;
+
+    public TextField UsernameOfPatient;
+    public TextField AddBloodType;
+    public TextField AddPlasmaRHD;
+    public TextField AddBoneMarrowHLA;
+    
+    public TextField BloodType;
+    public TextField PlasmaRHD;
+    public TextField BoneMarrowHLA;
 
     public NurseController(){
 
     }
 
     @FXML
-    public void initialize(){
+    public void initialize() throws IOException, ClassNotFoundException {
         super.initialize();
         Hospital.setText(Data.getInstance().personalInfo.getHospital());
-
     }
 
     public void addInformationPressed(ActionEvent actionEvent) throws IOException, ClassNotFoundException {
