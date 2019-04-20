@@ -17,7 +17,6 @@ public class SearchInfo implements Serializable {
         this.bloodTYpe=bloodTYpe;
         this.bloodPlasma=bloodPlasma;
         this.boneMarrow=boneMarrow;
-
     }
 
     public void setDonorInfo(SearchInfo donorInfo){

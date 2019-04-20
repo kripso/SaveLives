@@ -1,5 +1,6 @@
 package users;
 
+import Database.Data;
 import Model.AbstractUser;
 
 import java.io.*;
@@ -25,13 +26,17 @@ public class SaveUsers {
         out.close();
     }
 
-    public static void updateUserInfo(AbstractUser currentUser) throws ClassNotFoundException, IOException {
+    public static void updateUserInfo(AbstractUser currentUser,String username) throws ClassNotFoundException, IOException {
         ObjectInputStream in = new ObjectInputStream(new FileInputStream("UserInfo.out"));
 
         ArrayList<AbstractUser> users = (ArrayList<AbstractUser>) in.readObject();
+        System.out.println(Data.getInstance().abstractUser.getUserName());
+
+
 
         for (AbstractUser abstractUser : users) {
-            if (currentUser.getUserName().equals(abstractUser.getUserName())){
+            if (Data.getInstance().abstractUser.getUserName().equals(abstractUser.getUserName())){
+                currentUser.setUserName(username);
                 abstractUser.setUser(currentUser);
             }
         }
@@ -40,5 +45,6 @@ public class SaveUsers {
         ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("UserInfo.out"));
         out.writeObject(users);
         out.close();
+
     }
 }
