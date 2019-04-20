@@ -61,32 +61,33 @@ public class UserController {
     public void DonorCheckBoxChecked(ActionEvent actionEvent) throws IOException, ClassNotFoundException {
         if (!DonorCheckBox.isSelected()){
             Data.getInstance().abstractUser.setDonor(false);
-            SaveUsers.updateUserInfo(Data.getInstance().abstractUser);
+            SaveUsers.updateUserInfo(Data.getInstance().abstractUser,UsernameTxtF.getText());
             TabPane.getTabs().remove(PersonalInfo);
         }else {
             Data.getInstance().abstractUser.setDonor(true);
-            SaveUsers.updateUserInfo(Data.getInstance().abstractUser);
+            SaveUsers.updateUserInfo(Data.getInstance().abstractUser,UsernameTxtF.getText());
             TabPane.getTabs().add(1,PersonalInfo);
         }
         user.setDonor(Data.getInstance().abstractUser.getDonor());
     }
 
     public void usernameOnEnter(ActionEvent actionEvent) throws IOException, ClassNotFoundException {
+
+        SaveUsers.updateUserInfo(user,UsernameTxtF.getText());
         user.setUserName(UsernameTxtF.getText());
         Data.getInstance().abstractUser.setUserName(UsernameTxtF.getText());
-        SaveUsers.updateUserInfo(user);
     }
 
     public void passwordOnEnter(ActionEvent actionEvent) throws IOException, ClassNotFoundException {
         user.setPassword(PasswordTxtF.getText());
         Data.getInstance().abstractUser.setPassword(PasswordTxtF.getText());
-        SaveUsers.updateUserInfo(user);
+        SaveUsers.updateUserInfo(user,UsernameTxtF.getText());
     }
 
     public void occupationOnEnter(ActionEvent actionEvent) throws IOException, ClassNotFoundException {
         user.setOccupation(OccupationTxtF.getText());
         Data.getInstance().abstractUser.setOccupation(OccupationTxtF.getText());
-        SaveUsers.updateUserInfo(user);
+        SaveUsers.updateUserInfo(user,UsernameTxtF.getText());
     }
 
     public void addInformationPressed(ActionEvent actionEvent) throws IOException, ClassNotFoundException {
