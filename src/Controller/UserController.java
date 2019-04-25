@@ -72,10 +72,12 @@ public class UserController {
     }
 
     public void usernameOnEnter(ActionEvent actionEvent) throws IOException, ClassNotFoundException {
-
         SaveUsers.updateUserInfo(user,UsernameTxtF.getText());
+        SavePersonalInfo.updatePersonalInfo(personalInfo,UsernameTxtF.getText());
         user.setUserName(UsernameTxtF.getText());
+        personalInfo.setUserName(UsernameTxtF.getText());
         Data.getInstance().abstractUser.setUserName(UsernameTxtF.getText());
+        Data.getInstance().personalInfo.setUserName(UsernameTxtF.getText());
     }
 
     public void passwordOnEnter(ActionEvent actionEvent) throws IOException, ClassNotFoundException {
