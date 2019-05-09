@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class GetPersonalInfo {
 
     public ArrayList<PersonalInfo> users() throws IOException, ClassNotFoundException {
-        ObjectInputStream in = new ObjectInputStream(new FileInputStream("DonorInfo.out"));
+        ObjectInputStream in = new ObjectInputStream(new FileInputStream("PersonalInfo.out"));
         ArrayList<PersonalInfo> personalInfos = (ArrayList<PersonalInfo>) in.readObject();
         in.close();
         return personalInfos;

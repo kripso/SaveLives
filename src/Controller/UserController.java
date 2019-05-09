@@ -94,7 +94,7 @@ public class UserController {
 
     public void addInformationPressed(ActionEvent actionEvent) throws IOException, ClassNotFoundException {
         PersonalInfo personalInfo = new PersonalInfo(Data.getInstance().abstractUser.getUserName(),Name.getText(),Surname.getText(),Address.getText(),Email.getText(),PhoneNumber.getText());
-        SavePersonalInfo.donors(personalInfo);
+        SavePersonalInfo.personalInfo(personalInfo);
         Data.getInstance().personalInfo = personalInfo;
     }
 }

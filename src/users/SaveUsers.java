@@ -30,10 +30,7 @@ public class SaveUsers {
         ObjectInputStream in = new ObjectInputStream(new FileInputStream("UserInfo.out"));
 
         ArrayList<AbstractUser> users = (ArrayList<AbstractUser>) in.readObject();
-        System.out.println(Data.getInstance().abstractUser.getUserName());
-
-
-
+        
         for (AbstractUser abstractUser : users) {
             if (Data.getInstance().abstractUser.getUserName().equals(abstractUser.getUserName())){
                 currentUser.setUserName(username);
