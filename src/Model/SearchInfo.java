@@ -1,65 +1,60 @@
 package Model;
 
-import java.io.Serializable;
+import javafx.beans.property.SimpleStringProperty;
 
-public class SearchInfo implements Serializable {
+public class SearchInfo {
 
-
-    private String userName;
-    private String address;
-    private String bloodTYpe;
-    private String bloodPlasma;
-    private String boneMarrow;
+    private final SimpleStringProperty userName;
+    private final SimpleStringProperty address;
+    private final SimpleStringProperty bloodTYpe;
+    private final SimpleStringProperty bloodPlasma;
+    private final SimpleStringProperty boneMarrow;
 
     public SearchInfo(String userName,String address,String bloodTYpe, String bloodPlasma, String boneMarrow) {
-        this.userName=userName;
-        this.address=address;
-        this.bloodTYpe=bloodTYpe;
-        this.bloodPlasma=bloodPlasma;
-        this.boneMarrow=boneMarrow;
-    }
-
-    public void setDonorInfo(SearchInfo donorInfo){
-
+        this.userName = new SimpleStringProperty(userName);
+        this.address = new SimpleStringProperty(address);
+        this.bloodTYpe = new SimpleStringProperty(bloodTYpe);
+        this.bloodPlasma = new SimpleStringProperty(bloodPlasma);
+        this.boneMarrow = new SimpleStringProperty(boneMarrow);
     }
 
     public String getUserName() {
-        return userName;
+        return userName.get();
     }
 
     public void setUserName(String userName) {
-        this.userName = userName;
+        this.userName.set(userName);
     }
 
     public String getAddress() {
-        return address;
+        return address.get();
     }
 
     public void setAddress(String address) {
-        this.address = address;
+        this.address.set(address);
     }
 
     public String getBloodTYpe() {
-        return bloodTYpe;
+        return bloodTYpe.get();
     }
 
     public void setBloodTYpe(String bloodTYpe) {
-        this.bloodTYpe = bloodTYpe;
+        this.bloodTYpe.set(bloodTYpe);
     }
 
     public String getBloodPlasma() {
-        return bloodPlasma;
+        return bloodPlasma.get();
     }
 
     public void setBloodPlasma(String bloodPlasma) {
-        this.bloodPlasma = bloodPlasma;
+        this.bloodPlasma.set(bloodPlasma);
     }
 
     public String getBoneMarrow() {
-        return boneMarrow;
+        return boneMarrow.get();
     }
 
     public void setBoneMarrow(String boneMarrow) {
-        this.boneMarrow = boneMarrow;
+        this.boneMarrow.set(boneMarrow);
     }
 }

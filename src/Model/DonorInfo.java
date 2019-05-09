@@ -4,11 +4,13 @@ import java.io.Serializable;
 
 public class DonorInfo implements Serializable {
 
+    private String username;
     private String bloodTYpe;
     private String bloodPlasma;
     private String boneMarrow;
 
-    public DonorInfo(String bloodTYpe, String bloodPlasma, String boneMarrow) {
+    public DonorInfo(String username,String bloodTYpe, String bloodPlasma, String boneMarrow) {
+        this.username = username;
         this.bloodTYpe=bloodTYpe;
         this.bloodPlasma=bloodPlasma;
         this.boneMarrow=boneMarrow;
@@ -19,6 +21,14 @@ public class DonorInfo implements Serializable {
         this.bloodTYpe=donorInfo.bloodTYpe;
         this.bloodPlasma=donorInfo.bloodPlasma;
         this.boneMarrow=donorInfo.boneMarrow;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getBloodTYpe() {

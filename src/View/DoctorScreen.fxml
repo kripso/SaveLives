@@ -69,7 +69,7 @@
                         <Label layoutX="1.0" layoutY="122.0" text="Bone marrow (HLA)" />
                         <Label layoutX="1.0" text="Blood type" />
                         <Label layoutX="1.0" layoutY="60.0" text="Plasma RHD" />
-                        <Button layoutX="26.0" layoutY="194.0" mnemonicParsing="false" text="Add information" />
+                        <Button layoutX="26.0" layoutY="194.0" mnemonicParsing="false" onAction="#addPersonalDonorInfo" text="Add information" />
                      </children>
                   </Pane>
                </children>
@@ -82,14 +82,14 @@
                <children>
                   <Pane fx:id="AddDonorInfoPane" layoutX="556.0" layoutY="202.0" prefHeight="317.0" prefWidth="168.0">
                      <children>
-                        <TextField fx:id="AddBloodType" layoutX="1.0" layoutY="222.0" />
+                        <TextField fx:id="UsernameOfPatient" layoutY="38.0" />
                         <TextField fx:id="AddPlasmaRHD" layoutX="1.0" layoutY="99.0" />
                         <TextField fx:id="AddBoneMarrowHLA" layoutX="1.0" layoutY="159.0" />
+                        <TextField fx:id="AddBloodType" layoutX="1.0" layoutY="222.0" />
                         <Label layoutX="1.0" layoutY="204.0" text="Bone marrow (HLA)" />
                         <Label layoutX="1.0" layoutY="82.0" text="Blood type" />
                         <Label layoutX="1.0" layoutY="142.0" text="Plasma RHD" />
-                        <Button layoutX="26.0" layoutY="276.0" mnemonicParsing="false" text="Add information" />
-                        <TextField fx:id="UsernameOfPatient" layoutY="38.0" />
+                        <Button layoutX="26.0" layoutY="276.0" mnemonicParsing="false" onAction="#addPatienDonorInfo" text="Add information" />
                         <Label layoutY="21.0" text="Username" />
                      </children>
                   </Pane>

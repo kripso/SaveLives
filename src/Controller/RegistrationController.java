@@ -1,6 +1,7 @@
 package Controller;
 
 import Database.Data;
+import Model.DonorInfo;
 import Model.PersonalInfo;
 import Model.User;
 import View.DoctorScreen;
@@ -11,6 +12,7 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import users.SaveDonorInfo;
 import users.SavePersonalInfo;
 import users.SaveUsers;
 
@@ -31,12 +33,14 @@ public class RegistrationController {
         if(!UsernameTxtF.getText().equals("")&&!PasswordTxtF.getText().equals("")&&!OccupationTxtF.getText().equals("")){
             User user = new User(UsernameTxtF.getText(),PasswordTxtF.getText(),OccupationTxtF.getText(),DonorChecked.isSelected());
             PersonalInfo personalInfo = new PersonalInfo(UsernameTxtF.getText(),"","","","","");
-
+            DonorInfo donorInfo = new DonorInfo(UsernameTxtF.getText(),"","","");
             SaveUsers.users(user);
-            SavePersonalInfo.donors(personalInfo);
+            SavePersonalInfo.personalInfo(personalInfo);
+            SaveDonorInfo.donorInfo(donorInfo);
 
             Data.getInstance().abstractUser = user;
             Data.getInstance().personalInfo = personalInfo;
+            Data.getInstance().donorInfo = donorInfo;
 
             if(OccupationTxtF.getText().equals("Nurse")){
                 Controller.SetScene(NurseScreen.getscene());
