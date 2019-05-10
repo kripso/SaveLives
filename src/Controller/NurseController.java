@@ -60,7 +60,7 @@ public class NurseController extends UserController {
             DonorInfo donorInfo = new DonorInfo(UsernameOfPatient.getText(),AddBloodType.getText(),AddPlasmaRHD.getText(),AddBoneMarrowHLA.getText());
             SaveDonorInfo.addDonorInfo(donorInfo,UsernameOfPatient.getText());
         } catch (MyError myError) {
-            myError.UserNotFoundAlert(UsernameOfPatient.getText());
+            myError.UserNotFoundAlert();
         }
     }
 }
