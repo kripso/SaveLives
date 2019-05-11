@@ -6,7 +6,7 @@ public class NotifyUser extends Alert {
 
     public NotifyUser(String message){
         super(AlertType.CONFIRMATION);
-        this.setContentText("Notify user" + message + "?");
+        this.setContentText("Notify user " + message + "?");
         this.showAndWait();
     }
 }

@@ -11,7 +11,7 @@ import users.SaveDonorInfo;
 import users.SavePersonalInfo;
 import java.io.IOException;
 
-public abstract class NurseController extends UserController{
+public class NurseController extends UserController{
 
     public TextField hospital;
 
@@ -29,8 +29,8 @@ public abstract class NurseController extends UserController{
     public Button addPersonalDonorInfoButton;
     public Button addPatientDonorInfoButton;
 
-    public NurseController(){
-
+    public NurseController() throws IOException, ClassNotFoundException {
+        super();
     }
 
     @FXML
@@ -89,5 +89,6 @@ public abstract class NurseController extends UserController{
         }
     }
 
-    public abstract void setUpTableView() throws IOException, ClassNotFoundException;
+    public void setUpTableView() throws IOException, ClassNotFoundException{
+    }
 }

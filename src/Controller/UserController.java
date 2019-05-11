@@ -32,10 +32,12 @@ public class UserController {
     public PersonalInfo personalInfo = Data.getInstance().personalInfo;
     public Button addInformationButton;
 
-    public UserController(){
-        System.out.println(user.isContribution());
+    public UserController() throws IOException, ClassNotFoundException {
         if(user.isContribution()){
-            new UserNotification();
+            UserNotification userNotification = new UserNotification();
+            if(userNotification.getResult().getText().equals("OK")){
+                SaveUsers.updateUserInfo(user, false);
+            }
         }
     }
 

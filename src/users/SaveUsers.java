@@ -42,6 +42,22 @@ public class SaveUsers {
         ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("UserInfo.out"));
         out.writeObject(users);
         out.close();
+    }
+    public static void updateUserInfo(AbstractUser currentUser,boolean contribution) throws ClassNotFoundException, IOException {
+        ObjectInputStream in = new ObjectInputStream(new FileInputStream("UserInfo.out"));
 
+        ArrayList<AbstractUser> users = (ArrayList<AbstractUser>) in.readObject();
+
+        for (AbstractUser abstractUser : users) {
+            if (abstractUser.getUserName().equals(currentUser.getUserName())){
+                currentUser.setUserName(currentUser.getUserName());
+                abstractUser.setContribution(contribution);
+            }
+        }
+        in.close();
+
+        ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("UserInfo.out"));
+        out.writeObject(users);
+        out.close();
     }
 }

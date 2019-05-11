@@ -41,8 +41,8 @@ public class DoctorController extends NurseController{
     private GetPersonalInfo personalInfo = new GetPersonalInfo();
     private GetDonorInfo donorInfo = new GetDonorInfo();
 
-    public DoctorController() {
-
+    public DoctorController() throws IOException, ClassNotFoundException {
+        super();
     }
     public static boolean containsIgnoreCase(String str, String subString) {
         return str.toLowerCase().contains(subString.toLowerCase());
@@ -66,7 +66,11 @@ public class DoctorController extends NurseController{
             if (notifyUser.getResult().getText().equals("OK")){
                 for (int x = 0; x<users.size();x++){
                     if (users.get(x).getUserName().equals(searchInfo.getUserName())){
-                        Data.getInstance().abstractUser.setContribution(true);
+                        try {
+                            SaveUsers.updateUserInfo(users.get(x),true);
+                        } catch (ClassNotFoundException | IOException e) {
+                            e.printStackTrace();
+                        }
                     }
                 }
             }
@@ -84,7 +88,6 @@ public class DoctorController extends NurseController{
 
         for (int x = 0; x<users.size();x++){
             if (!users.get(x).getDonor()){
-                System.out.println(users.get(x).getUserName());
                 personalInfos.remove(x);
                 users.remove(x);
                 donorInfos.remove(x);
