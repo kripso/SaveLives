@@ -1,10 +1,13 @@
 package Controller;
 
+import Database.Data;
 import Model.*;
+import View.NotifyUser;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.Group;
+import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import users.*;
@@ -41,6 +44,9 @@ public class DoctorController extends NurseController{
     public DoctorController() {
 
     }
+    public static boolean containsIgnoreCase(String str, String subString) {
+        return str.toLowerCase().contains(subString.toLowerCase());
+    }
 
     @FXML
     public void initialize() throws IOException, ClassNotFoundException {
@@ -54,6 +60,17 @@ public class DoctorController extends NurseController{
                 e.printStackTrace();
             }
         });
+        tableView.setOnMouseClicked(event -> {
+            SearchInfo searchInfo = (SearchInfo) tableView.getSelectionModel().getSelectedItem();
+            NotifyUser notifyUser = new NotifyUser(searchInfo.getUserName());
+            if (notifyUser.getResult().getText().equals("OK")){
+                for (int x = 0; x<users.size();x++){
+                    if (users.get(x).getUserName().equals(searchInfo.getUserName())){
+                        Data.getInstance().abstractUser.setContribution(true);
+                    }
+                }
+            }
+        });
 
     }
 
@@ -65,9 +82,19 @@ public class DoctorController extends NurseController{
 
         final ObservableList<SearchInfo> data = FXCollections.observableArrayList();
 
+        for (int x = 0; x<users.size();x++){
+            if (!users.get(x).getDonor()){
+                System.out.println(users.get(x).getUserName());
+                personalInfos.remove(x);
+                users.remove(x);
+                donorInfos.remove(x);
+                x--;
+            }
+        }
+
         if(!findAddress.getText().equals("")){
             for (int x = 0; x<users.size();x++){
-                if (!personalInfos.get(x).getAddress().equals(findAddress.getText())){
+                if (!containsIgnoreCase(personalInfos.get(x).getAddress(),findAddress.getText())){
                     personalInfos.remove(x);
                     users.remove(x);
                     donorInfos.remove(x);
@@ -77,7 +104,7 @@ public class DoctorController extends NurseController{
         }
         if(!findBloodType.getText().equals("")){
             for (int x = 0;x<users.size();x++){
-                if (!donorInfos.get(x).getBloodTYpe().equals(findBloodType.getText())){
+                if (!containsIgnoreCase(donorInfos.get(x).getBloodTYpe(),findBloodType.getText())){
                     personalInfos.remove(x);
                     users.remove(x);
                     donorInfos.remove(x);
@@ -87,7 +114,7 @@ public class DoctorController extends NurseController{
         }
         if(!findPlasmaRHD.getText().equals("")){
             for (int x = 0;x<users.size();x++){
-                if (!donorInfos.get(x).getBloodPlasma().equals(findPlasmaRHD.getText())){
+                if (!containsIgnoreCase(donorInfos.get(x).getBloodPlasma(),findPlasmaRHD.getText())){
                     personalInfos.remove(x);
                     users.remove(x);
                     donorInfos.remove(x);
@@ -97,7 +124,7 @@ public class DoctorController extends NurseController{
         }
         if(!findBoneMarrowHLA.getText().equals("")){
             for (int x = 0;x<users.size();x++){
-                if (!donorInfos.get(x).getBoneMarrow().equals(findBoneMarrowHLA.getText())){
+                if (!containsIgnoreCase(donorInfos.get(x).getBoneMarrow(),findBoneMarrowHLA.getText())){
                     personalInfos.remove(x);
                     users.remove(x);
                     donorInfos.remove(x);
@@ -107,7 +134,7 @@ public class DoctorController extends NurseController{
         }
         if(!findUserName.getText().equals("")){
             for (int x = 0;x<users.size();x++){
-                if (!users.get(x).getUserName().equals(findUserName.getText())){
+                if (!containsIgnoreCase(users.get(x).getUserName(),findUserName.getText())){
                     personalInfos.remove(x);
                     users.remove(x);
                     donorInfos.remove(x);
@@ -138,6 +165,6 @@ public class DoctorController extends NurseController{
             );
             tableView.setItems(data);
         }
-
     }
+
 }

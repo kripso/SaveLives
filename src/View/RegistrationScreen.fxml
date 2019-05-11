@@ -13,10 +13,10 @@
       <Label layoutX="556.0" layoutY="230.0" text="Username" />
       <Label layoutX="556.0" layoutY="295.0" text="Password" />
       <Label layoutX="556.0" layoutY="360.0" text="Occupation" />
-      <TextField fx:id="UsernameTxtF" layoutX="555.0" layoutY="245.0" prefHeight="30.0" prefWidth="170.0" />
-      <PasswordField fx:id="PasswordTxtF" layoutX="555.0" layoutY="310.0" prefHeight="30.0" prefWidth="170.0" />
-      <TextField fx:id="OccupationTxtF" layoutX="555.0" layoutY="375.0" prefHeight="30.0" prefWidth="170.0" />
-      <CheckBox fx:id="DonorChecked" alignment="CENTER" contentDisplay="TOP" layoutX="565.0" layoutY="416.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" text="Do you want to be&#10; a personalInfo" textAlignment="CENTER" />
+      <TextField fx:id="usernameTxtF" layoutX="555.0" layoutY="245.0" prefHeight="30.0" prefWidth="170.0" />
+      <PasswordField fx:id="passwordTxtF" layoutX="555.0" layoutY="310.0" prefHeight="30.0" prefWidth="170.0" />
+      <TextField fx:id="occupationTxtF" layoutX="555.0" layoutY="375.0" prefHeight="30.0" prefWidth="170.0" />
+      <CheckBox fx:id="donorChecked" alignment="CENTER" contentDisplay="TOP" layoutX="565.0" layoutY="416.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" text="Do you want to be&#10; a personalInfo" textAlignment="CENTER" />
       <Button layoutX="655.0" layoutY="460.0" mnemonicParsing="false" onAction="#RegisterPressed" prefHeight="30.0" prefWidth="70.0" text="Register" />
       <Button layoutX="555.0" layoutY="460.0" mnemonicParsing="false" onAction="#LoginPressed" prefHeight="30.0" prefWidth="70.0" text="Log in" />
    </children>

@@ -8,13 +8,14 @@ public abstract class AbstractUser implements Serializable {
     private String password;
     private String occupation;
     private boolean donor;
+    private boolean contribution;
 
-
-    public AbstractUser(String userName, String password, String occupation, boolean donor) {
+    public AbstractUser(String userName, String password, String occupation, boolean donor, boolean contribution) {
         this.userName = userName;
         this.password = password;
         this.occupation = occupation;
         this.donor = donor;
+        this.contribution = contribution;
     }
 
 
@@ -51,4 +52,16 @@ public abstract class AbstractUser implements Serializable {
         return donor;
     }
 
+
+    public boolean isDonor() {
+        return donor;
+    }
+
+    public boolean isContribution() {
+        return contribution;
+    }
+
+    public void setContribution(boolean contribution) {
+        this.contribution = contribution;
+    }
 }

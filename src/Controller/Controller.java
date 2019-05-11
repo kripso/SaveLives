@@ -19,15 +19,15 @@ public class Controller {
     }
 
     public static void SetScene(String SetActiveScene) throws Exception {
-        if (SetActiveScene == "UserScene") {
+        if (SetActiveScene.equals("UserScene")) {
             new UserScreen(PrimaryStage);
-        } else if (SetActiveScene == "NurseScene") {
+        } else if (SetActiveScene.equals("NurseScene")) {
             new NurseScreen(PrimaryStage);
-        } else if (SetActiveScene == "DoctorScene") {
+        } else if (SetActiveScene.equals("DoctorScene")) {
             new DoctorScreen(PrimaryStage);
-        } else if (SetActiveScene == "LoginScene") {
+        } else if (SetActiveScene.equals("LoginScene")) {
             new LoginScreen(PrimaryStage);
-        } else if (SetActiveScene == "RegistrationScene") {
+        } else if (SetActiveScene.equals("RegistrationScene")) {
             new RegistrationScreen(PrimaryStage);
         }
     }

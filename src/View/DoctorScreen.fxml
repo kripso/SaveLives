@@ -11,40 +11,40 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.Pane?>
 
-<TabPane fx:id="TabPane" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.DoctorController">
+<TabPane fx:id="tabPane" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.DoctorController">
    <tabs>
-      <Tab fx:id="UserTab" text="User tab">
+      <Tab fx:id="userTab" text="User tab">
          <content>
             <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0">
                <children>
                   <Button layoutX="604.0" layoutY="543.0" mnemonicParsing="false" onAction="#LogoutPressed" text="Sign Out" />
                   <Pane layoutX="557.0" layoutY="257.0">
                      <children>
-                        <TextField fx:id="UsernameTxtF" layoutY="17.0" onAction="#usernameOnEnter" />
-                        <TextField fx:id="PasswordTxtF" layoutY="77.0" onAction="#passwordOnEnter" />
-                        <TextField fx:id="OccupationTxtF" layoutY="139.0" onAction="#occupationOnEnter" />
+                        <TextField fx:id="usernameTxtF" layoutY="17.0" onAction="#usernameOnEnter" />
+                        <TextField fx:id="passwordTxtF" layoutY="77.0" onAction="#passwordOnEnter" />
+                        <TextField fx:id="occupationTxtF" layoutY="139.0" onAction="#occupationOnEnter" />
                         <Label text="Username" />
                         <Label layoutY="60.0" text="Password" />
                         <Label layoutX="1.0" layoutY="122.0" text="Occupation" />
-                        <CheckBox fx:id="DonorCheckBox" layoutX="53.0" layoutY="189.0" mnemonicParsing="false" onAction="#DonorCheckBoxChecked" text="donor" />
+                        <CheckBox fx:id="donorCheckBox" layoutX="53.0" layoutY="189.0" mnemonicParsing="false" onAction="#DonorCheckBoxChecked" text="donor" />
                      </children>
                   </Pane>
                </children>
             </Pane>
          </content>
       </Tab>
-      <Tab fx:id="PersonalInfo" text="Personal inf.">
+      <Tab fx:id="personalInfoTab" text="Personal inf.">
          <content>
             <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0">
                <children>
                   <Pane fx:id="PersonalInfoPane" layoutX="556.0" layoutY="153.0" prefHeight="415.0" prefWidth="168.0">
                      <children>
-                        <TextField fx:id="Name" layoutX="1.0" layoutY="17.0" />
-                        <TextField fx:id="Surname" layoutX="1.0" layoutY="77.0" />
-                        <TextField fx:id="Address" layoutX="1.0" layoutY="140.0" />
-                        <TextField fx:id="Email" layoutX="1.0" layoutY="200.0" />
-                        <TextField fx:id="PhoneNumber" layoutX="1.0" layoutY="262.0" />
-                        <TextField fx:id="Hospital" layoutX="1.0" layoutY="329.0" />
+                        <TextField fx:id="name" layoutX="1.0" layoutY="17.0" />
+                        <TextField fx:id="surname" layoutX="1.0" layoutY="77.0" />
+                        <TextField fx:id="address" layoutX="1.0" layoutY="140.0" />
+                        <TextField fx:id="email" layoutX="1.0" layoutY="200.0" />
+                        <TextField fx:id="phoneNumber" layoutX="1.0" layoutY="262.0" />
+                        <TextField fx:id="hospital" layoutX="1.0" layoutY="329.0" />
                         <Label layoutX="1.0" layoutY="122.0" text="Address" />
                         <Label layoutY="245.0" text="Phone number" />
                         <Label layoutY="183.0" text="Email" />
@@ -64,9 +64,9 @@
                <children>
                   <Pane fx:id="DonorInfoPane" layoutX="556.0" layoutY="234.0" prefHeight="252.0" prefWidth="168.0">
                      <children>
-                        <TextField fx:id="BloodType" layoutX="1.0" layoutY="140.0" />
-                        <TextField fx:id="PlasmaRHD" layoutX="1.0" layoutY="17.0" />
-                        <TextField fx:id="BoneMarrowHLA" layoutX="1.0" layoutY="77.0" />
+                        <TextField fx:id="bloodType" layoutX="1.0" layoutY="140.0" />
+                        <TextField fx:id="plasmaRHD" layoutX="1.0" layoutY="17.0" />
+                        <TextField fx:id="boneMarrowHLA" layoutX="1.0" layoutY="77.0" />
                         <Label layoutX="1.0" layoutY="122.0" text="Bone marrow (HLA)" />
                         <Label layoutX="1.0" text="Blood type" />
                         <Label layoutX="1.0" layoutY="60.0" text="Plasma RHD" />
@@ -83,10 +83,10 @@
                <children>
                   <Pane fx:id="AddDonorInfoPane" layoutX="556.0" layoutY="202.0" prefHeight="317.0" prefWidth="168.0">
                      <children>
-                        <TextField fx:id="UsernameOfPatient" layoutY="38.0" />
-                        <TextField fx:id="AddPlasmaRHD" layoutX="1.0" layoutY="99.0" />
-                        <TextField fx:id="AddBoneMarrowHLA" layoutX="1.0" layoutY="159.0" />
-                        <TextField fx:id="AddBloodType" layoutX="1.0" layoutY="222.0" />
+                        <TextField fx:id="usernameOfPatient" layoutY="38.0" />
+                        <TextField fx:id="addPlasmaRHD" layoutX="1.0" layoutY="99.0" />
+                        <TextField fx:id="addBoneMarrowHLA" layoutX="1.0" layoutY="159.0" />
+                        <TextField fx:id="addBloodType" layoutX="1.0" layoutY="222.0" />
                         <Label layoutX="1.0" layoutY="204.0" text="Bone marrow (HLA)" />
                         <Label layoutX="1.0" layoutY="82.0" text="Blood type" />
                         <Label layoutX="1.0" layoutY="142.0" text="Plasma RHD" />

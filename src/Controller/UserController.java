@@ -3,6 +3,7 @@ package Controller;
 import Database.Data;
 import Model.PersonalInfo;
 import Model.User;
+import View.UserNotification;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -12,54 +13,58 @@ import java.io.IOException;
 
 public class UserController {
 
-    public javafx.scene.control.TabPane TabPane;
+    public javafx.scene.control.TabPane tabPane;
 
-    public TextField UsernameTxtF;
-    public TextField PasswordTxtF;
-    public TextField OccupationTxtF;
-    public CheckBox DonorCheckBox;
-    public Tab PersonalInfo;
-    public Tab UserTab;
+    public TextField usernameTxtF;
+    public TextField passwordTxtF;
+    public TextField occupationTxtF;
+    public CheckBox donorCheckBox;
+    public Tab personalInfoTab;
+    public Tab userTab;
 
-    public TextField Address;
-    public TextField Email;
-    public TextField PhoneNumber;
-    public TextField Name;
-    public TextField Surname;
+    public TextField address;
+    public TextField email;
+    public TextField phoneNumber;
+    public TextField name;
+    public TextField surname;
 
     public User user = (User) Data.getInstance().abstractUser;
     public PersonalInfo personalInfo = Data.getInstance().personalInfo;
     public Button addInformationButton;
 
     public UserController(){
-
+        System.out.println(user.isContribution());
+        if(user.isContribution()){
+            new UserNotification();
+        }
     }
 
     @FXML
     public void initialize() throws IOException, ClassNotFoundException {
-        UsernameTxtF.setText(user.getUserName());
-        PasswordTxtF.setText(user.getPassword());
-        OccupationTxtF.setText(user.getOccupation());
-        DonorCheckBox.setSelected(user.getDonor());
+        usernameTxtF.setText(user.getUserName());
+        passwordTxtF.setText(user.getPassword());
+        occupationTxtF.setText(user.getOccupation());
+        donorCheckBox.setSelected(user.getDonor());
 
-        Name.setText(personalInfo.getName());
-        Surname.setText(personalInfo.getSurname());
-        Address.setText(personalInfo.getAddress());
-        Email.setText(personalInfo.getEmail());
-        PhoneNumber.setText(personalInfo.getPhoneNum());
+        name.setText(personalInfo.getName());
+        surname.setText(personalInfo.getSurname());
+        address.setText(personalInfo.getAddress());
+        email.setText(personalInfo.getEmail());
+        phoneNumber.setText(personalInfo.getPhoneNum());
 
-        UserTab.setClosable(false);
+        userTab.setClosable(false);
 
-        if (!DonorCheckBox.isSelected()){
-            TabPane.getTabs().remove(PersonalInfo);
+        if (!donorCheckBox.isSelected()){
+            tabPane.getTabs().remove(personalInfoTab);
         }
-        addInformationButton.setOnAction(event -> {
-            try {
-                addInformationPressed();
-            } catch (IOException | ClassNotFoundException e) {
-                e.printStackTrace();
-            }
-        });
+
+       addInformationButton.setOnAction(event -> {
+           try {
+               addInformationPressed();
+           } catch (IOException | ClassNotFoundException e) {
+               e.printStackTrace();
+           }
+       });
     }
 
     public void LogoutPressed() throws Exception {
@@ -67,41 +72,41 @@ public class UserController {
     }
 
     public void DonorCheckBoxChecked(ActionEvent actionEvent) throws IOException, ClassNotFoundException {
-        if (!DonorCheckBox.isSelected()){
+        if (!donorCheckBox.isSelected()){
             Data.getInstance().abstractUser.setDonor(false);
-            SaveUsers.updateUserInfo(Data.getInstance().abstractUser,UsernameTxtF.getText());
-            TabPane.getTabs().remove(PersonalInfo);
+            SaveUsers.updateUserInfo(Data.getInstance().abstractUser, usernameTxtF.getText());
+            tabPane.getTabs().remove(personalInfoTab);
         }else {
             Data.getInstance().abstractUser.setDonor(true);
-            SaveUsers.updateUserInfo(Data.getInstance().abstractUser,UsernameTxtF.getText());
-            TabPane.getTabs().add(1,PersonalInfo);
+            SaveUsers.updateUserInfo(Data.getInstance().abstractUser, usernameTxtF.getText());
+            tabPane.getTabs().add(1, personalInfoTab);
         }
         user.setDonor(Data.getInstance().abstractUser.getDonor());
     }
 
     public void usernameOnEnter(ActionEvent actionEvent) throws IOException, ClassNotFoundException {
-        SaveUsers.updateUserInfo(user,UsernameTxtF.getText());
-        SavePersonalInfo.updatePersonalInfo(personalInfo,UsernameTxtF.getText());
-        user.setUserName(UsernameTxtF.getText());
-        personalInfo.setUserName(UsernameTxtF.getText());
-        Data.getInstance().abstractUser.setUserName(UsernameTxtF.getText());
-        Data.getInstance().personalInfo.setUserName(UsernameTxtF.getText());
+        SaveUsers.updateUserInfo(user, usernameTxtF.getText());
+        SavePersonalInfo.updatePersonalInfo(personalInfo, usernameTxtF.getText());
+        user.setUserName(usernameTxtF.getText());
+        personalInfo.setUserName(usernameTxtF.getText());
+        Data.getInstance().abstractUser.setUserName(usernameTxtF.getText());
+        Data.getInstance().personalInfo.setUserName(usernameTxtF.getText());
     }
 
     public void passwordOnEnter(ActionEvent actionEvent) throws IOException, ClassNotFoundException {
-        user.setPassword(PasswordTxtF.getText());
-        Data.getInstance().abstractUser.setPassword(PasswordTxtF.getText());
-        SaveUsers.updateUserInfo(user,UsernameTxtF.getText());
+        user.setPassword(passwordTxtF.getText());
+        Data.getInstance().abstractUser.setPassword(passwordTxtF.getText());
+        SaveUsers.updateUserInfo(user, usernameTxtF.getText());
     }
 
     public void occupationOnEnter(ActionEvent actionEvent) throws IOException, ClassNotFoundException {
-        user.setOccupation(OccupationTxtF.getText());
-        Data.getInstance().abstractUser.setOccupation(OccupationTxtF.getText());
-        SaveUsers.updateUserInfo(user,UsernameTxtF.getText());
+        user.setOccupation(occupationTxtF.getText());
+        Data.getInstance().abstractUser.setOccupation(occupationTxtF.getText());
+        SaveUsers.updateUserInfo(user, usernameTxtF.getText());
     }
 
     public void addInformationPressed() throws IOException, ClassNotFoundException {
-        PersonalInfo personalInfo = new PersonalInfo(Data.getInstance().abstractUser.getUserName(),Name.getText(),Surname.getText(),Address.getText(),Email.getText(),PhoneNumber.getText());
+        PersonalInfo personalInfo = new PersonalInfo(Data.getInstance().abstractUser.getUserName(), name.getText(), surname.getText(), address.getText(), email.getText(), phoneNumber.getText());
         SavePersonalInfo.personalInfo(personalInfo);
         Data.getInstance().personalInfo = personalInfo;
     }

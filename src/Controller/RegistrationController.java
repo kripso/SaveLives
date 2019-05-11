@@ -19,10 +19,10 @@ import users.SaveUsers;
 public class RegistrationController {
 
 
-    public TextField UsernameTxtF;
-    public PasswordField PasswordTxtF;
-    public TextField OccupationTxtF;
-    public CheckBox DonorChecked;
+    public TextField usernameTxtF;
+    public PasswordField passwordTxtF;
+    public TextField occupationTxtF;
+    public CheckBox donorChecked;
 
 
     public RegistrationController(){
@@ -30,10 +30,10 @@ public class RegistrationController {
     }
 
     public void RegisterPressed() throws Exception {
-        if(!UsernameTxtF.getText().equals("")&&!PasswordTxtF.getText().equals("")&&!OccupationTxtF.getText().equals("")){
-            User user = new User(UsernameTxtF.getText(),PasswordTxtF.getText(),OccupationTxtF.getText(),DonorChecked.isSelected());
-            PersonalInfo personalInfo = new PersonalInfo(UsernameTxtF.getText(),"","","","","");
-            DonorInfo donorInfo = new DonorInfo(UsernameTxtF.getText(),"","","");
+        if(!usernameTxtF.getText().equals("")&&!passwordTxtF.getText().equals("")&&!occupationTxtF.getText().equals("")){
+            User user = new User(usernameTxtF.getText(), passwordTxtF.getText(), occupationTxtF.getText(), donorChecked.isSelected(),false);
+            PersonalInfo personalInfo = new PersonalInfo(usernameTxtF.getText(),"","","","","");
+            DonorInfo donorInfo = new DonorInfo(usernameTxtF.getText(),"","","");
             SaveUsers.users(user);
             SavePersonalInfo.personalInfo(personalInfo);
             SaveDonorInfo.donorInfo(donorInfo);
@@ -42,9 +42,9 @@ public class RegistrationController {
             Data.getInstance().personalInfo = personalInfo;
             Data.getInstance().donorInfo = donorInfo;
 
-            if(OccupationTxtF.getText().equals("Nurse")){
+            if(occupationTxtF.getText().equals("Nurse")){
                 Controller.SetScene(NurseScreen.getscene());
-            }else if(OccupationTxtF.getText().equals("Doctor")){
+            }else if(occupationTxtF.getText().equals("Doctor")){
                 Controller.SetScene(DoctorScreen.getscene());
             }else {
                 Controller.SetScene(UserScreen.getscene());

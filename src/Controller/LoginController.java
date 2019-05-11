@@ -7,13 +7,11 @@ import Model.MyError;
 import Model.PersonalInfo;
 import View.*;
 import javafx.event.ActionEvent;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
-import sun.plugin2.message.Message;
 import users.GetDonorInfo;
 import users.GetPersonalInfo;
 import users.GetUserInfo;
@@ -23,9 +21,9 @@ import java.util.ArrayList;
 
 public class LoginController {
 
-    public Label Registration;
-    public PasswordField PasswordTxtF;
-    public TextField UsernameTxtF;
+    public Label registration;
+    public PasswordField passwordTxtF;
+    public TextField usernameTxtF;
 
     ArrayList<AbstractUser> users;
     ArrayList<PersonalInfo> personalInfos;
@@ -47,9 +45,9 @@ public class LoginController {
         DonorInfo donorInfo;
 
         try{
-            user = getUser(UsernameTxtF.getText(), PasswordTxtF.getText());
-            personalInfo = getPersonalInfo(UsernameTxtF.getText());
-            donorInfo = getDonorInfo(UsernameTxtF.getText());
+            user = getUser(usernameTxtF.getText(), passwordTxtF.getText());
+            personalInfo = getPersonalInfo(usernameTxtF.getText());
+            donorInfo = getDonorInfo(usernameTxtF.getText());
 
             if (user != null) {
 
@@ -77,7 +75,7 @@ public class LoginController {
                 return abstractUser;
             }
         }
-        throw new MyError(UsernameTxtF.getText());
+        throw new MyError(usernameTxtF.getText());
     }
     public PersonalInfo getPersonalInfo(String userName) {
         for (PersonalInfo personalInfo : personalInfos) {
@@ -101,11 +99,11 @@ public class LoginController {
     }
 
     public void MouseEntered(MouseEvent mouseEvent) {
-        Registration.setTextFill(Color.BLUE);
+        registration.setTextFill(Color.BLUE);
     }
 
     public void MouseExited(MouseEvent mouseEvent) {
-        Registration.setTextFill(Color.BLACK);
+        registration.setTextFill(Color.BLACK);
     }
 
     public void onEnter(ActionEvent actionEvent) throws Exception {

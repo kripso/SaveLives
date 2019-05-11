@@ -13,16 +13,16 @@ import java.io.IOException;
 
 public abstract class NurseController extends UserController{
 
-    public TextField Hospital;
+    public TextField hospital;
 
-    public TextField UsernameOfPatient;
-    public TextField AddBloodType;
-    public TextField AddPlasmaRHD;
-    public TextField AddBoneMarrowHLA;
+    public TextField usernameOfPatient;
+    public TextField addBloodType;
+    public TextField addPlasmaRHD;
+    public TextField addBoneMarrowHLA;
     
-    public TextField BloodType;
-    public TextField PlasmaRHD;
-    public TextField BoneMarrowHLA;
+    public TextField bloodType;
+    public TextField plasmaRHD;
+    public TextField boneMarrowHLA;
 
     public DonorInfo donorInfo = Data.getInstance().donorInfo;
 
@@ -37,10 +37,10 @@ public abstract class NurseController extends UserController{
     public void initialize() throws IOException, ClassNotFoundException {
         super.initialize();
         if (donorInfo != null){
-            BloodType.setText(Data.getInstance().donorInfo.getBloodTYpe());
-            PlasmaRHD.setText(Data.getInstance().donorInfo.getBloodPlasma());
-            BoneMarrowHLA.setText(Data.getInstance().donorInfo.getBoneMarrow());
-            Hospital.setText(Data.getInstance().personalInfo.getHospital());
+            bloodType.setText(Data.getInstance().donorInfo.getBloodTYpe());
+            plasmaRHD.setText(Data.getInstance().donorInfo.getBloodPlasma());
+            boneMarrowHLA.setText(Data.getInstance().donorInfo.getBoneMarrow());
+            hospital.setText(Data.getInstance().personalInfo.getHospital());
         }
         addPatientDonorInfoButton.setOnAction(event ->{
             try {
@@ -60,7 +60,7 @@ public abstract class NurseController extends UserController{
 
     @Override
     public void addInformationPressed() throws IOException, ClassNotFoundException {
-        PersonalInfo personalInfo = new PersonalInfo(Data.getInstance().abstractUser.getUserName(),Name.getText(),Surname.getText(),Address.getText(),Email.getText(),PhoneNumber.getText(),Hospital.getText());
+        PersonalInfo personalInfo = new PersonalInfo(Data.getInstance().abstractUser.getUserName(), name.getText(), surname.getText(), address.getText(), email.getText(), phoneNumber.getText(), hospital.getText());
         SavePersonalInfo.personalInfo(personalInfo);
         Data.getInstance().personalInfo = personalInfo;
         if(this instanceof DoctorController){
@@ -69,7 +69,7 @@ public abstract class NurseController extends UserController{
     }
 
     public void addPersonalDonorInfo() throws IOException, ClassNotFoundException {
-        DonorInfo donorInfo = new DonorInfo(Data.getInstance().abstractUser.getUserName(),BloodType.getText(),PlasmaRHD.getText(),BoneMarrowHLA.getText());
+        DonorInfo donorInfo = new DonorInfo(Data.getInstance().abstractUser.getUserName(), bloodType.getText(), plasmaRHD.getText(), boneMarrowHLA.getText());
         SaveDonorInfo.updateDonorInfo(donorInfo,Data.getInstance().abstractUser.getUserName());
         Data.getInstance().donorInfo = donorInfo;
         if(this instanceof DoctorController){
@@ -79,8 +79,8 @@ public abstract class NurseController extends UserController{
 
     public void addPatientDonorInfo() throws IOException, ClassNotFoundException {
         try {
-            DonorInfo donorInfo = new DonorInfo(UsernameOfPatient.getText(),AddBloodType.getText(),AddPlasmaRHD.getText(),AddBoneMarrowHLA.getText());
-            SaveDonorInfo.addDonorInfo(donorInfo,UsernameOfPatient.getText());
+            DonorInfo donorInfo = new DonorInfo(usernameOfPatient.getText(), addBloodType.getText(), addPlasmaRHD.getText(), addBoneMarrowHLA.getText());
+            SaveDonorInfo.addDonorInfo(donorInfo, usernameOfPatient.getText());
             if(this instanceof DoctorController){
                 setUpTableView();
             }
