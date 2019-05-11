@@ -66,7 +66,7 @@ public class LoginController {
                 }
             }
         }catch(MyError myError){
-            myError.UsernameNotFoundAlert(UsernameTxtF.getText());
+            myError.UsernameNotFoundAlert();
         }
     }
 

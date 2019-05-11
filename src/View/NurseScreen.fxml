@@ -47,7 +47,7 @@
                         <Label layoutY="183.0" text="Email" />
                         <Label layoutX="1.0" text="Name" />
                         <Label layoutX="1.0" layoutY="60.0" text="Surname" />
-                        <Button layoutX="26.0" layoutY="374.0" mnemonicParsing="false" onAction="#addInformationPressed" text="Add information" />
+                        <Button fx:id="addInformationButton" layoutX="26.0" layoutY="374.0" mnemonicParsing="false" text="Add information" />
                         <Label layoutY="312.0" text="Hospital" />
                      </children>
                   </Pane>
@@ -67,7 +67,7 @@
                         <Label layoutX="1.0" layoutY="122.0" text="Bone marrow (HLA)" />
                         <Label layoutX="1.0" text="Blood type" />
                         <Label layoutX="1.0" layoutY="60.0" text="Plasma RHD" />
-                        <Button layoutX="26.0" layoutY="194.0" mnemonicParsing="false" onAction="#addPersonalDonorInfo" text="Add information" />
+                        <Button fx:id="addPersonalDonorInfoButton" layoutX="26.0" layoutY="194.0" mnemonicParsing="false" text="Add information" />
                      </children>
                   </Pane>
                </children>
@@ -87,7 +87,7 @@
                         <Label layoutX="1.0" layoutY="204.0" text="Bone marrow (HLA)" />
                         <Label layoutX="1.0" layoutY="82.0" text="Blood type" />
                         <Label layoutX="1.0" layoutY="142.0" text="Plasma RHD" />
-                        <Button layoutX="26.0" layoutY="276.0" mnemonicParsing="false" onAction="#addPatienDonorInfo" text="Add information" />
+                        <Button fx:id="addPatientDonorInfoButton" layoutX="26.0" layoutY="276.0" mnemonicParsing="false" text="Add information" />
                         <Label layoutY="21.0" text="Username" />
                      </children>
                   </Pane>

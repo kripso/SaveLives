@@ -8,7 +8,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import users.SavePersonalInfo;
 import users.SaveUsers;
-
 import java.io.IOException;
 
 public class UserController {
@@ -30,10 +29,12 @@ public class UserController {
 
     public User user = (User) Data.getInstance().abstractUser;
     public PersonalInfo personalInfo = Data.getInstance().personalInfo;
+    public Button addInformationButton;
 
     public UserController(){
 
     }
+
     @FXML
     public void initialize() throws IOException, ClassNotFoundException {
         UsernameTxtF.setText(user.getUserName());
@@ -52,6 +53,13 @@ public class UserController {
         if (!DonorCheckBox.isSelected()){
             TabPane.getTabs().remove(PersonalInfo);
         }
+        addInformationButton.setOnAction(event -> {
+            try {
+                addInformationPressed();
+            } catch (IOException | ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+        });
     }
 
     public void LogoutPressed() throws Exception {
@@ -92,7 +100,7 @@ public class UserController {
         SaveUsers.updateUserInfo(user,UsernameTxtF.getText());
     }
 
-    public void addInformationPressed(ActionEvent actionEvent) throws IOException, ClassNotFoundException {
+    public void addInformationPressed() throws IOException, ClassNotFoundException {
         PersonalInfo personalInfo = new PersonalInfo(Data.getInstance().abstractUser.getUserName(),Name.getText(),Surname.getText(),Address.getText(),Email.getText(),PhoneNumber.getText());
         SavePersonalInfo.personalInfo(personalInfo);
         Data.getInstance().personalInfo = personalInfo;
