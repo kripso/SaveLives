@@ -18,7 +18,8 @@ import java.util.ArrayList;
  */
 public class DoctorController extends NurseController{
     /**
-     *
+     *inicializovanie textfieldov ktore sa nachadzaju nad tabulkou
+     *inicializovanie a osobnych a darcovskych udajov o vsetkych pouzivateloch
      */
     public TextField findUserName;
     public TextField findAddress;
@@ -43,17 +44,19 @@ public class DoctorController extends NurseController{
     private GetUserInfo userInfo = new GetUserInfo();
     private GetPersonalInfo personalInfo = new GetPersonalInfo();
     private GetDonorInfo donorInfo = new GetDonorInfo();
-    /**
-     *
-     */
+
     public DoctorController() throws IOException, ClassNotFoundException {
         super();
     }
+    /**
+     * fukcia na hladanie substring ale upravena na to aby ignorovala velke a male pismena
+     */
     private static boolean containsIgnoreCase(String str, String subString) {
         return str.toLowerCase().contains(subString.toLowerCase());
     }
     /**
-     *
+     * pridana eventhandler ktory zistuje ktora cast tabulky bola kliknuta a nasledne vyskoceny alert pre upozornenie uzivatela na ktoreho sa kliklo
+     * dalej textfields su vsetky textfieldy pouzite na vyhladavanie
      */
     @FXML
     public void initialize() throws IOException, ClassNotFoundException {
@@ -85,7 +88,7 @@ public class DoctorController extends NurseController{
 
     }
     /**
-     *
+     * funkcia ktora nastavuje tabulku
      */
     @Override
     public  void setUpTableView() throws IOException, ClassNotFoundException {
@@ -95,7 +98,7 @@ public class DoctorController extends NurseController{
 
         final ObservableList<SearchInfo> data = FXCollections.observableArrayList();
         /**
-         *
+         * najskor program prehlada vsetkych pouzivatelov a vymaze z dat tych ktory nechcu byt darcovia
          */
         for (int x = 0; x<users.size();x++){
             if (!users.get(x).getDonor()){
@@ -106,7 +109,12 @@ public class DoctorController extends NurseController{
             }
         }
         /**
-         *
+         * nasledovne podmienky sluzia na triedenie tabulky a mazanie tych darcov ktory nesplnaju podmienky zadane doktorov v textfieldoch
+         * findUserName
+         * findAddress
+         * findBloodType
+         * findPlasmaRHD
+         * findBoneMarrowHLA
          */
         if(!findAddress.getText().equals("")){
             for (int x = 0; x<users.size();x++){
@@ -159,7 +167,7 @@ public class DoctorController extends NurseController{
             }
         }
         /**
-         *
+         * vyplnenie tabulky udajmi ktore presli triedenim
          */
         if (users != null){
             for (int x = 0;x<users.size();x++){
@@ -167,19 +175,19 @@ public class DoctorController extends NurseController{
             }
 
             usernameColumn.setCellValueFactory(
-                    new PropertyValueFactory<SearchInfo,String>("userName")
+                    new PropertyValueFactory<>("userName")
             );
             addressColumn.setCellValueFactory(
-                    new PropertyValueFactory<SearchInfo,String>("address")
+                    new PropertyValueFactory<>("address")
             );
             bloodTypeColumn.setCellValueFactory(
-                    new PropertyValueFactory<SearchInfo,String>("bloodTYpe")
+                    new PropertyValueFactory<>("bloodTYpe")
             );
             plasmaColumn.setCellValueFactory(
-                    new PropertyValueFactory<SearchInfo,String>("bloodPlasma")
+                    new PropertyValueFactory<>("bloodPlasma")
             );
             boneMarrowColumn.setCellValueFactory(
-                    new PropertyValueFactory<SearchInfo,String>("boneMarrow")
+                    new PropertyValueFactory<>("boneMarrow")
             );
             tableView.setItems(data);
         }

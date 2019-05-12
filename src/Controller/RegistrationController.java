@@ -17,12 +17,12 @@ import users.SavePersonalInfo;
 import users.SaveUsers;
 /**
  * <h1>RegistrationController</h1>
- * Controller ma za ulohu nastavovat patricne View podla toho kto sa prihlasi
+ * Controller ma za ulohu vytvorit pouzivatela a zapnut patricne View podla toho kto sa prihlasi
  * @author  Roland Rajcsanyi
  */
 public class RegistrationController {
     /**
-     *
+     * inicializovanie textfieldov
      */
     public TextField usernameTxtF;
     public PasswordField passwordTxtF;
@@ -35,8 +35,8 @@ public class RegistrationController {
     }
 
     /**
-     *
-     * @throws Exception
+     * Registracia uzivatela inicializovanie jeho dat a informacii o nom
+     * nasledne podla povolania sa zapne patricna scena
      */
     public void RegisterPressed() throws Exception {
         if(!usernameTxtF.getText().equals("")&&!passwordTxtF.getText().equals("")&&!occupationTxtF.getText().equals("")){
@@ -59,13 +59,10 @@ public class RegistrationController {
                 Controller.SetScene(UserScreen.getscene());
             }
         }
-
     }
 
     /**
-     *
-     * @param actionEvent
-     * @throws Exception
+     * prechod na login scenu
      */
     public void LoginPressed(ActionEvent actionEvent) throws Exception {
         Controller.SetScene(LoginScreen.getscene());

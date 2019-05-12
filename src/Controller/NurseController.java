@@ -12,12 +12,14 @@ import users.SavePersonalInfo;
 import java.io.IOException;
 /**
  * <h1>NurseController</h1>
- * Controller ma za ulohu nastavovat patricne View podla toho kto sa prihlasi
+ * NurseController je uceny pre Sestricky a spolupatricne pracuje s danym view
+ * ma navyse nikolko funkcii oproti userovi
  * @author  Roland Rajcsanyi
  */
 public class NurseController extends UserController{
     /**
-     *
+     * inicializacie dodatocnych textfieldov ktore niesu spristupnene userovy takisto aj s dvomi tabmi
+     * a pridane inicializovanie dat o darcovskych infomaciach koli ich spracovaniu
      */
     public TextField hospital;
 
@@ -39,7 +41,8 @@ public class NurseController extends UserController{
         super();
     }
     /**
-     *
+     * nastavenie dodatocnych textfieldov
+     * a pridade dva setOnAction event handleri pre pridanie Darcovskych informacii o sebe a pacientoch
      */
     @FXML
     public void initialize() throws IOException, ClassNotFoundException {
@@ -66,7 +69,9 @@ public class NurseController extends UserController{
         });
     }
     /**
-     *
+     * overridnuta funkcia koli pridanej funkcionalite
+     * kazdy doktor a sestricka maju pridany textfield na urcenie nemocnice v ktorej pracuju
+     * dalej funkcia zistuje ci prave pracuje Doctor alebo sestricka a ked pracuje doctor znovu nastavy tabulku koli zmenenym informaciam
      */
     @Override
     public void addInformationPressed() throws IOException, ClassNotFoundException {
@@ -78,7 +83,7 @@ public class NurseController extends UserController{
         }
     }
     /**
-     *
+     * nastavenie osobnych darcovskych udajov
      */
     public void addPersonalDonorInfo() throws IOException, ClassNotFoundException {
         DonorInfo donorInfo = new DonorInfo(Data.getInstance().abstractUser.getUserName(), bloodType.getText(), plasmaRHD.getText(), boneMarrowHLA.getText());
@@ -89,7 +94,7 @@ public class NurseController extends UserController{
         }
     }
     /**
-     *
+     * tato fukncia nastavuje darcovske informacie pouzivatelovi s usernamom ktory zada sestricka alebo doktor v programe
      */
     public void addPatientDonorInfo() throws IOException, ClassNotFoundException {
         try {
@@ -103,7 +108,9 @@ public class NurseController extends UserController{
         }
     }
     /**
-     *
+     * inicializovanie fukncie na nastavenie dat v tabulke
+     * namiesto override na funkciu addPersonalDonorInfo a addInformationPressed v DoctorController som sa rozhodol ist tymto smerom
+     * na usetrenie riadkov kodu a zbytocne prepisovanie fukncii
      */
     public void setUpTableView() throws IOException, ClassNotFoundException{
     }
