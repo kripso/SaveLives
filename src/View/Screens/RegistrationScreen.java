@@ -5,7 +5,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-
+/**
+ * view registracie noveho pouzivatela
+ */
 public class RegistrationScreen{
 
     public RegistrationScreen(Stage PrimaryStage) throws Exception{

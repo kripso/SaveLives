@@ -6,7 +6,9 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.util.ArrayList;
-
+/**
+ * treda vyuzita na nacitavanie udajov o vsetkych darcoch
+ */
 public class GetDonorInfo {
 
     public ArrayList<DonorInfo> users() throws IOException, ClassNotFoundException {

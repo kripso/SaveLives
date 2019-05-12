@@ -5,6 +5,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+/**
+ * pouzivatelske view
+ */
 public class UserScreen{
 
     public UserScreen(Stage PrimaryStage) throws Exception{

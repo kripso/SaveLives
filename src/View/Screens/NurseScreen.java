@@ -5,6 +5,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+/**
+ * view pre sestricku
+ */
 public class NurseScreen{
 
     public NurseScreen(Stage PrimaryStage) throws Exception{

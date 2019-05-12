@@ -5,9 +5,14 @@ import Model.AbstractUser;
 
 import java.io.*;
 import java.util.ArrayList;
-
+/**
+ * olohou tejto clasy je vytvorit upravit a prepisat serializeble zlosky s prihlasovacimi udajmi o pouzivateloch
+ */
 public class SaveUsers {
-
+    /**
+     * tato metoda sa spusta pri prvotnom vygenerovani uzivatelov
+     * @param abstractUsers vsetky udaje s uzivatelmi
+     */
     public static void users(ArrayList<AbstractUser> abstractUsers) throws IOException {
         ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("UserInfo.out"));
         out.writeObject(abstractUsers);

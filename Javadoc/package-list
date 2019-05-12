@@ -1,0 +1,10 @@
+
+Alerts
+Controller
+Model
+Model.DataManagement.GenetareData
+Model.DataManagement.GetData
+Model.DataManagement.SaveData
+Model.Database
+View.AlertsAndNotifications
+View.Screens

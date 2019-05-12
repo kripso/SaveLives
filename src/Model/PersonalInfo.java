@@ -2,6 +2,9 @@ package Model;
 
 import java.io.Serializable;
 
+/**
+ * trieda pre osobne informacie o pouzivatelovi
+ */
 public class PersonalInfo implements Serializable {
 
     private String userName;
@@ -34,7 +37,6 @@ public class PersonalInfo implements Serializable {
     public PersonalInfo(String userName) {
         this.userName=userName;
     }
-
 
     public void setPersonalInfo(PersonalInfo personalInfo){
         this.userName = personalInfo.userName;

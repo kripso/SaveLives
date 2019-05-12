@@ -2,6 +2,9 @@ package View.AlertsAndNotifications;
 
 import javafx.scene.control.Alert;
 
+/**
+ * alert pre upozornenie pouzivatela ze je potrebne jeho darcovstvo
+ */
 public class UserNotification extends Alert {
 
     public UserNotification(){

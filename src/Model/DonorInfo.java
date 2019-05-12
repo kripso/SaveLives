@@ -2,6 +2,9 @@ package Model;
 
 import java.io.Serializable;
 
+/**
+ * trieda pre darcovske udaje o pouzivatelovi
+ */
 public class DonorInfo implements Serializable {
 
     private String username;

@@ -1,7 +1,9 @@
 package Model;
 
 import javafx.beans.property.SimpleStringProperty;
-
+/**
+ * tato trieda sa vyuziva na zhromazdovanie udajov ktore sa zobrazuju v tabulke doktorovi
+ */
 public class SearchInfo {
 
     private final SimpleStringProperty userName;

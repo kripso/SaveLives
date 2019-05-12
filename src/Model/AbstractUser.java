@@ -2,6 +2,9 @@ package Model;
 
 import java.io.Serializable;
 
+/**
+ * abstractna treda pre prihlasovanie udaje o pouzivatelovi
+ */
 public abstract class AbstractUser implements Serializable {
 
     private String userName;
@@ -10,6 +13,14 @@ public abstract class AbstractUser implements Serializable {
     private boolean donor;
     private boolean contribution;
 
+    /**
+     * inicializacia pouzivatela s patricnimy parametrami
+     * @param userName
+     * @param password
+     * @param occupation
+     * @param donor
+     * @param contribution
+     */
     public AbstractUser(String userName, String password, String occupation, boolean donor, boolean contribution) {
         this.userName = userName;
         this.password = password;
@@ -18,7 +29,6 @@ public abstract class AbstractUser implements Serializable {
         this.contribution = contribution;
     }
 
-
     public void setUser(AbstractUser user){
         this.userName = user.userName;
         this.password = user.password;
@@ -26,6 +36,9 @@ public abstract class AbstractUser implements Serializable {
         this.donor = user.donor;
     }
 
+    /**
+     * seteri a geteri pre pouzivatela
+     */
     public void setUserName(String userName) {
         this.userName = userName;
     }
@@ -52,11 +65,9 @@ public abstract class AbstractUser implements Serializable {
         return donor;
     }
 
-
     public boolean isDonor() {
         return donor;
     }
-
     public boolean isContribution() {
         return contribution;
     }

@@ -5,7 +5,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-
+/**
+ * view ktore zobrazuje prihlasovaciu obrazovku
+ */
 public class LoginScreen{
 
     public LoginScreen(Stage PrimaryStage) throws Exception{

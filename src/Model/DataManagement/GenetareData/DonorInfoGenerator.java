@@ -5,6 +5,9 @@ import Model.DonorInfo;
 import java.util.ArrayList;
 import java.util.Random;
 
+/**
+ * Generator na udaja o darcoch
+ */
 public class DonorInfoGenerator {
     String[] bloodType = {"A+","A-","B+","B-","0+","0-","AB+","AB-"};
     String[] plasma = {"A AB","A AB","B AB","B AB","0","0","AB","AB"};

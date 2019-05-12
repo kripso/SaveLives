@@ -5,6 +5,9 @@ import Model.PersonalInfo;
 import java.util.ArrayList;
 import java.util.Random;
 
+/**
+ * generator osobnych udajov pre pociatocnych uzivatelov
+ */
 public class PersonalInfoGenerator {
     private String[] surname = {"Jeli", "Kori", "Holi", "Nora", "Hyme", "Lay", "kor", "Ose", "Sko", "Hyon"};
     private  String[] address = {
@@ -23,7 +26,7 @@ public class PersonalInfoGenerator {
         ArrayList<PersonalInfo> personalInfos = new ArrayList<>();
         for (int i = 0; i < 50; i++) {
             Random random = new Random();
-            PersonalInfo personalInfo = new PersonalInfo(username[i],username[i],surname[random.nextInt(10)],address[random.nextInt(10)],username[random.nextInt(10)] + "@email.com",String.valueOf(random.nextInt(1000000)));
+            PersonalInfo personalInfo = new PersonalInfo(username[i],username[i],surname[random.nextInt(10)],address[random.nextInt(10)],username[i] + "@email.com",String.valueOf(random.nextInt(1000000)));
             personalInfos.add(personalInfo);
         }
         return personalInfos;

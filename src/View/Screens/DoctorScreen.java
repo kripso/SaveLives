@@ -5,6 +5,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+/**
+ * View pre doktora
+ */
 public class DoctorScreen {
 
     public DoctorScreen(Stage PrimaryStage) throws Exception{

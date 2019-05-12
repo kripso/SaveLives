@@ -7,14 +7,25 @@ import Alerts.MyAlerts;
 import java.io.*;
 import java.util.ArrayList;
 
+/**
+ * olohou tejto clasy je vytvorit upravit a prepisat serializeble zlosky s darcovskymi udajmi o pouzivateloch
+ */
 public class SaveDonorInfo {
-
+    /**
+     * tato metoda sa spusta pri prvotnom vygenerovani uzivatelov
+     * @param donorInfos vsetky udaje s uzivatelmi
+     */
     public static void donorInfo(ArrayList<DonorInfo> donorInfos) throws IOException {
         ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("DonorInfo.out"));
         out.writeObject(donorInfos);
         out.close();
     }
 
+    /**
+     * prepisanie uz nahratych udajov v DonorInfo na aktualne s prislusnymi parametrami
+     * @param currentUser user s novymi udajmi
+     * @param username username
+     */
     public static void updateDonorInfo(DonorInfo currentUser,String username) throws ClassNotFoundException, IOException {
         ObjectInputStream in = new ObjectInputStream(new FileInputStream("DonorInfo.out"));
 
@@ -32,8 +43,9 @@ public class SaveDonorInfo {
         out.writeObject(users);
         out.close();
     }
+
     public static void donorInfo(DonorInfo donorInfo) throws ClassNotFoundException, IOException {
-        Boolean InfoWasUpdated = false;
+        boolean InfoWasUpdated = false;
         ObjectInputStream in = new ObjectInputStream(new FileInputStream("DonorInfo.out"));
 
         ArrayList<DonorInfo> donorInfos = (ArrayList<DonorInfo>) in.readObject();
@@ -54,6 +66,12 @@ public class SaveDonorInfo {
         out.close();
     }
 
+    /**
+     * pridanie novych udajov o pouzivatelovi
+     * @param currentUser
+     * @param username
+     * @throws MyAlerts vyhodi alert ak sa uzivatel nenajde
+     */
     public static void addDonorInfo(DonorInfo currentUser,String username) throws ClassNotFoundException, IOException, MyAlerts {
         ObjectInputStream in = new ObjectInputStream(new FileInputStream("DonorInfo.out"));
         boolean changed = false;

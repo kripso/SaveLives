@@ -6,6 +6,9 @@ import Model.User;
 import java.util.ArrayList;
 import java.util.Random;
 
+/**
+ * generator prihlasovacich udajov a pracoviska
+ */
 public class UsersGenerator {
 
     public static String[] username = {

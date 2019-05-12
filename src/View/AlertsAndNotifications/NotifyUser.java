@@ -2,6 +2,9 @@ package View.AlertsAndNotifications;
 
 import javafx.scene.control.Alert;
 
+/**
+ * alert ktory sa spýta doktora ci ma program upozornit patričneho pouzivatela
+ */
 public class NotifyUser extends Alert {
 
     public NotifyUser(String message){
