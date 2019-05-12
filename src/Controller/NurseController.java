@@ -10,9 +10,15 @@ import javafx.scene.control.TextField;
 import users.SaveDonorInfo;
 import users.SavePersonalInfo;
 import java.io.IOException;
-
+/**
+ * <h1>NurseController</h1>
+ * Controller ma za ulohu nastavovat patricne View podla toho kto sa prihlasi
+ * @author  Roland Rajcsanyi
+ */
 public class NurseController extends UserController{
-
+    /**
+     *
+     */
     public TextField hospital;
 
     public TextField usernameOfPatient;
@@ -24,7 +30,7 @@ public class NurseController extends UserController{
     public TextField plasmaRHD;
     public TextField boneMarrowHLA;
 
-    public DonorInfo donorInfo = Data.getInstance().donorInfo;
+    private DonorInfo donorInfo = Data.getInstance().donorInfo;
 
     public Button addPersonalDonorInfoButton;
     public Button addPatientDonorInfoButton;
@@ -32,7 +38,9 @@ public class NurseController extends UserController{
     public NurseController() throws IOException, ClassNotFoundException {
         super();
     }
-
+    /**
+     *
+     */
     @FXML
     public void initialize() throws IOException, ClassNotFoundException {
         super.initialize();
@@ -57,7 +65,9 @@ public class NurseController extends UserController{
             }
         });
     }
-
+    /**
+     *
+     */
     @Override
     public void addInformationPressed() throws IOException, ClassNotFoundException {
         PersonalInfo personalInfo = new PersonalInfo(Data.getInstance().abstractUser.getUserName(), name.getText(), surname.getText(), address.getText(), email.getText(), phoneNumber.getText(), hospital.getText());
@@ -67,7 +77,9 @@ public class NurseController extends UserController{
             setUpTableView();
         }
     }
-
+    /**
+     *
+     */
     public void addPersonalDonorInfo() throws IOException, ClassNotFoundException {
         DonorInfo donorInfo = new DonorInfo(Data.getInstance().abstractUser.getUserName(), bloodType.getText(), plasmaRHD.getText(), boneMarrowHLA.getText());
         SaveDonorInfo.updateDonorInfo(donorInfo,Data.getInstance().abstractUser.getUserName());
@@ -76,7 +88,9 @@ public class NurseController extends UserController{
             setUpTableView();
         }
     }
-
+    /**
+     *
+     */
     public void addPatientDonorInfo() throws IOException, ClassNotFoundException {
         try {
             DonorInfo donorInfo = new DonorInfo(usernameOfPatient.getText(), addBloodType.getText(), addPlasmaRHD.getText(), addBoneMarrowHLA.getText());
@@ -88,7 +102,9 @@ public class NurseController extends UserController{
             myError.UserNotFoundAlert();
         }
     }
-
+    /**
+     *
+     */
     public void setUpTableView() throws IOException, ClassNotFoundException{
     }
 }

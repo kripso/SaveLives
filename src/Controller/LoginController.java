@@ -18,27 +18,36 @@ import users.GetUserInfo;
 
 import java.io.IOException;
 import java.util.ArrayList;
-
+/**
+ * <h1>LoginController</h1>
+ * Controller ma za ulohu nastavovat patricne View podla toho kto sa prihlasi
+ * @author  Roland Rajcsanyi
+ */
 public class LoginController {
-
+    /**
+     *
+     */
     public Label registration;
     public PasswordField passwordTxtF;
     public TextField usernameTxtF;
 
-    ArrayList<AbstractUser> users;
-    ArrayList<PersonalInfo> personalInfos;
-    ArrayList<DonorInfo> donorInfos;
-
-    GetUserInfo userInfo = new GetUserInfo();
-    GetPersonalInfo personalInfo = new GetPersonalInfo();
-    GetDonorInfo donorInfo = new GetDonorInfo();
+    private ArrayList<AbstractUser> users;
+    private ArrayList<PersonalInfo> personalInfos;
+    private ArrayList<DonorInfo> donorInfos;
 
     public LoginController() throws IOException, ClassNotFoundException {
+        GetUserInfo userInfo = new GetUserInfo();
         users = userInfo.users();
+        GetPersonalInfo personalInfo = new GetPersonalInfo();
         personalInfos = personalInfo.users();
+        GetDonorInfo donorInfo = new GetDonorInfo();
         donorInfos = donorInfo.users();
     }
 
+    /**
+     *
+     * @throws Exception
+     */
     public void LoginPressed() throws Exception {
         AbstractUser user;
         PersonalInfo personalInfo;
@@ -68,8 +77,12 @@ public class LoginController {
         }
     }
 
-
-    public AbstractUser getUser(String userName, String password) throws MyError{
+    /**
+     *
+     * @param userName
+     * @param password
+     */
+    private AbstractUser getUser(String userName, String password) throws MyError{
         for (AbstractUser abstractUser : users) {
             if (abstractUser.getUserName().equals(userName) && abstractUser.getPassword().equals(password)) {
                 return abstractUser;
@@ -77,7 +90,14 @@ public class LoginController {
         }
         throw new MyError(usernameTxtF.getText());
     }
-    public PersonalInfo getPersonalInfo(String userName) {
+
+    /**
+     *
+     * @param userName
+     * @return
+     */
+
+    private PersonalInfo getPersonalInfo(String userName) {
         for (PersonalInfo personalInfo : personalInfos) {
             if (personalInfo.getUserName().equals(userName)) {
                 return personalInfo;
@@ -85,7 +105,13 @@ public class LoginController {
         }
         return null;
     }
-    public DonorInfo getDonorInfo(String userName) {
+
+    /**
+     *
+     * @param userName
+     * @return
+     */
+    private DonorInfo getDonorInfo(String userName) {
         for (DonorInfo donorInfo : donorInfos) {
             if (donorInfo.getUsername().equals(userName)) {
                 return donorInfo;
@@ -94,6 +120,10 @@ public class LoginController {
         return null;
     }
 
+    /**
+     *
+     * @param mouseEvent
+     */
     public void Registration(MouseEvent mouseEvent) throws Exception {
         Controller.SetScene(RegistrationScreen.getscene());
     }

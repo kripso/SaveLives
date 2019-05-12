@@ -15,10 +15,15 @@ import javafx.scene.control.TextField;
 import users.SaveDonorInfo;
 import users.SavePersonalInfo;
 import users.SaveUsers;
-
+/**
+ * <h1>RegistrationController</h1>
+ * Controller ma za ulohu nastavovat patricne View podla toho kto sa prihlasi
+ * @author  Roland Rajcsanyi
+ */
 public class RegistrationController {
-
-
+    /**
+     *
+     */
     public TextField usernameTxtF;
     public PasswordField passwordTxtF;
     public TextField occupationTxtF;
@@ -29,6 +34,10 @@ public class RegistrationController {
 
     }
 
+    /**
+     *
+     * @throws Exception
+     */
     public void RegisterPressed() throws Exception {
         if(!usernameTxtF.getText().equals("")&&!passwordTxtF.getText().equals("")&&!occupationTxtF.getText().equals("")){
             User user = new User(usernameTxtF.getText(), passwordTxtF.getText(), occupationTxtF.getText(), donorChecked.isSelected(),false);
@@ -53,8 +62,12 @@ public class RegistrationController {
 
     }
 
+    /**
+     *
+     * @param actionEvent
+     * @throws Exception
+     */
     public void LoginPressed(ActionEvent actionEvent) throws Exception {
         Controller.SetScene(LoginScreen.getscene());
-
     }
 }

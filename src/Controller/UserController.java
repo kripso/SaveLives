@@ -10,17 +10,23 @@ import javafx.scene.control.*;
 import users.SavePersonalInfo;
 import users.SaveUsers;
 import java.io.IOException;
-
+/**
+ * <h1>UserController</h1>
+ * Controller ma za ulohu nastavovat patricne View podla toho kto sa prihlasi
+ * @author  Roland Rajcsanyi
+ */
 public class UserController {
-
+    /**
+     *
+     */
     public javafx.scene.control.TabPane tabPane;
+    public Tab personalInfoTab;
+    public Tab userTab;
 
     public TextField usernameTxtF;
     public TextField passwordTxtF;
     public TextField occupationTxtF;
     public CheckBox donorCheckBox;
-    public Tab personalInfoTab;
-    public Tab userTab;
 
     public TextField address;
     public TextField email;
@@ -32,6 +38,9 @@ public class UserController {
     public PersonalInfo personalInfo = Data.getInstance().personalInfo;
     public Button addInformationButton;
 
+    /**
+     *
+     */
     public UserController() throws IOException, ClassNotFoundException {
         if(user.isContribution()){
             UserNotification userNotification = new UserNotification();
@@ -41,6 +50,10 @@ public class UserController {
         }
     }
 
+    /**
+     *
+     *
+     */
     @FXML
     public void initialize() throws IOException, ClassNotFoundException {
         usernameTxtF.setText(user.getUserName());
@@ -69,10 +82,17 @@ public class UserController {
        });
     }
 
+    /**
+     *
+     */
     public void LogoutPressed() throws Exception {
         Controller.SetScene();
     }
 
+    /**
+     *
+     * @param actionEvent
+     */
     public void DonorCheckBoxChecked(ActionEvent actionEvent) throws IOException, ClassNotFoundException {
         if (!donorCheckBox.isSelected()){
             Data.getInstance().abstractUser.setDonor(false);
@@ -86,6 +106,9 @@ public class UserController {
         user.setDonor(Data.getInstance().abstractUser.getDonor());
     }
 
+    /**
+     *
+     */
     public void usernameOnEnter(ActionEvent actionEvent) throws IOException, ClassNotFoundException {
         SaveUsers.updateUserInfo(user, usernameTxtF.getText());
         SavePersonalInfo.updatePersonalInfo(personalInfo, usernameTxtF.getText());
@@ -94,19 +117,25 @@ public class UserController {
         Data.getInstance().abstractUser.setUserName(usernameTxtF.getText());
         Data.getInstance().personalInfo.setUserName(usernameTxtF.getText());
     }
-
+    /**
+     *
+     */
     public void passwordOnEnter(ActionEvent actionEvent) throws IOException, ClassNotFoundException {
         user.setPassword(passwordTxtF.getText());
         Data.getInstance().abstractUser.setPassword(passwordTxtF.getText());
         SaveUsers.updateUserInfo(user, usernameTxtF.getText());
     }
-
+    /**
+     *
+     */
     public void occupationOnEnter(ActionEvent actionEvent) throws IOException, ClassNotFoundException {
         user.setOccupation(occupationTxtF.getText());
         Data.getInstance().abstractUser.setOccupation(occupationTxtF.getText());
         SaveUsers.updateUserInfo(user, usernameTxtF.getText());
     }
-
+    /**
+     *
+     */
     public void addInformationPressed() throws IOException, ClassNotFoundException {
         PersonalInfo personalInfo = new PersonalInfo(Data.getInstance().abstractUser.getUserName(), name.getText(), surname.getText(), address.getText(), email.getText(), phoneNumber.getText());
         SavePersonalInfo.personalInfo(personalInfo);

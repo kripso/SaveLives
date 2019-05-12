@@ -6,7 +6,6 @@ import javafx.scene.control.Alert;
 
 public class MyError extends Exception {
     String username;
-    String missingInfo;
 
     public MyError(String login) {
         username = login;

@@ -1,35 +1,38 @@
 package Controller;
 
-import Database.Data;
 import Model.*;
 import View.NotifyUser;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.Group;
-import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import users.*;
 import java.io.IOException;
 import java.util.ArrayList;
-
-
+/**
+ * <h1>DoctorController</h1>
+ * Controller ma za ulohu nastavovat patricne View podla toho kto sa prihlasi
+ * @author  Roland Rajcsanyi
+ */
 public class DoctorController extends NurseController{
-
+    /**
+     *
+     */
     public TextField findUserName;
     public TextField findAddress;
     public TextField findBloodType;
     public TextField findPlasmaRHD;
     public TextField findBoneMarrowHLA;
 
-    public TableView tableView;
+    public TableView<SearchInfo> tableView;
 
-    public TableColumn usernameColumn;
-    public TableColumn addressColumn;
-    public TableColumn bloodTypeColumn;
-    public TableColumn plasmaColumn;
-    public TableColumn boneMarrowColumn;
+    public TableColumn<SearchInfo, String> usernameColumn;
+    public TableColumn<SearchInfo, String> addressColumn;
+    public TableColumn<SearchInfo, String> bloodTypeColumn;
+    public TableColumn<SearchInfo, String> plasmaColumn;
+    public TableColumn<SearchInfo, String> boneMarrowColumn;
     public Group textFields;
 
 
@@ -40,14 +43,18 @@ public class DoctorController extends NurseController{
     private GetUserInfo userInfo = new GetUserInfo();
     private GetPersonalInfo personalInfo = new GetPersonalInfo();
     private GetDonorInfo donorInfo = new GetDonorInfo();
-
+    /**
+     *
+     */
     public DoctorController() throws IOException, ClassNotFoundException {
         super();
     }
-    public static boolean containsIgnoreCase(String str, String subString) {
+    private static boolean containsIgnoreCase(String str, String subString) {
         return str.toLowerCase().contains(subString.toLowerCase());
     }
-
+    /**
+     *
+     */
     @FXML
     public void initialize() throws IOException, ClassNotFoundException {
         super.initialize();
@@ -61,13 +68,13 @@ public class DoctorController extends NurseController{
             }
         });
         tableView.setOnMouseClicked(event -> {
-            SearchInfo searchInfo = (SearchInfo) tableView.getSelectionModel().getSelectedItem();
+            SearchInfo searchInfo = tableView.getSelectionModel().getSelectedItem();
             NotifyUser notifyUser = new NotifyUser(searchInfo.getUserName());
             if (notifyUser.getResult().getText().equals("OK")){
-                for (int x = 0; x<users.size();x++){
-                    if (users.get(x).getUserName().equals(searchInfo.getUserName())){
+                for (AbstractUser abstractUser : users) {
+                    if (abstractUser.getUserName().equals(searchInfo.getUserName())) {
                         try {
-                            SaveUsers.updateUserInfo(users.get(x),true);
+                            SaveUsers.updateUserInfo(abstractUser, true);
                         } catch (ClassNotFoundException | IOException e) {
                             e.printStackTrace();
                         }
@@ -77,7 +84,9 @@ public class DoctorController extends NurseController{
         });
 
     }
-
+    /**
+     *
+     */
     @Override
     public  void setUpTableView() throws IOException, ClassNotFoundException {
         users = userInfo.users();
@@ -85,7 +94,9 @@ public class DoctorController extends NurseController{
         donorInfos = donorInfo.users();
 
         final ObservableList<SearchInfo> data = FXCollections.observableArrayList();
-
+        /**
+         *
+         */
         for (int x = 0; x<users.size();x++){
             if (!users.get(x).getDonor()){
                 personalInfos.remove(x);
@@ -94,7 +105,9 @@ public class DoctorController extends NurseController{
                 x--;
             }
         }
-
+        /**
+         *
+         */
         if(!findAddress.getText().equals("")){
             for (int x = 0; x<users.size();x++){
                 if (!containsIgnoreCase(personalInfos.get(x).getAddress(),findAddress.getText())){
@@ -145,7 +158,9 @@ public class DoctorController extends NurseController{
                 }
             }
         }
-
+        /**
+         *
+         */
         if (users != null){
             for (int x = 0;x<users.size();x++){
                 data.add(new SearchInfo(users.get(x).getUserName(),personalInfos.get(x).getAddress(),donorInfos.get(x).getBloodTYpe(),donorInfos.get(x).getBloodPlasma(),donorInfos.get(x).getBoneMarrow()));
