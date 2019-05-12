@@ -1,6 +1,5 @@
-package users;
+package Model.DataManagement.GetData;
 
-import Model.AbstractUser;
 import Model.DonorInfo;
 
 import java.io.FileInputStream;

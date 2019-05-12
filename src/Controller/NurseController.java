@@ -1,14 +1,14 @@
 package Controller;
 
-import Database.Data;
+import Model.Database.Data;
 import Model.DonorInfo;
-import Model.MyError;
+import Alerts.MyAlerts;
 import Model.PersonalInfo;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import users.SaveDonorInfo;
-import users.SavePersonalInfo;
+import Model.DataManagement.SaveData.SaveDonorInfo;
+import Model.DataManagement.SaveData.SavePersonalInfo;
 import java.io.IOException;
 /**
  * <h1>NurseController</h1>
@@ -103,8 +103,8 @@ public class NurseController extends UserController{
             if(this instanceof DoctorController){
                 setUpTableView();
             }
-        } catch (MyError myError) {
-            myError.UserNotFoundAlert();
+        } catch (MyAlerts myAlerts) {
+            myAlerts.UserNotFoundAlert();
         }
     }
     /**

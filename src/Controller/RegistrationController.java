@@ -1,20 +1,20 @@
 package Controller;
 
-import Database.Data;
+import Model.Database.Data;
 import Model.DonorInfo;
 import Model.PersonalInfo;
 import Model.User;
-import View.DoctorScreen;
-import View.LoginScreen;
-import View.NurseScreen;
-import View.UserScreen;
+import View.Screens.DoctorScreen;
+import View.Screens.LoginScreen;
+import View.Screens.NurseScreen;
+import View.Screens.UserScreen;
 import javafx.event.ActionEvent;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import users.SaveDonorInfo;
-import users.SavePersonalInfo;
-import users.SaveUsers;
+import Model.DataManagement.SaveData.SaveDonorInfo;
+import Model.DataManagement.SaveData.SavePersonalInfo;
+import Model.DataManagement.SaveData.SaveUsers;
 /**
  * <h1>RegistrationController</h1>
  * Controller ma za ulohu vytvorit pouzivatela a zapnut patricne View podla toho kto sa prihlasi

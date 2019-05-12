@@ -1,4 +1,4 @@
-package Database;
+package Model.Database;
 
 import Model.AbstractUser;
 import Model.DonorInfo;

@@ -1,14 +1,14 @@
 package Controller;
 
-import Database.Data;
+import Model.Database.Data;
 import Model.PersonalInfo;
 import Model.User;
-import View.UserNotification;
+import View.AlertsAndNotifications.UserNotification;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import users.SavePersonalInfo;
-import users.SaveUsers;
+import Model.DataManagement.SaveData.SavePersonalInfo;
+import Model.DataManagement.SaveData.SaveUsers;
 import java.io.IOException;
 /**
  * <h1>UserController</h1>

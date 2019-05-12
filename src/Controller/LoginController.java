@@ -1,20 +1,23 @@
 package Controller;
 
-import Database.Data;
+import Model.Database.Data;
 import Model.AbstractUser;
 import Model.DonorInfo;
-import Model.MyError;
+import Alerts.MyAlerts;
 import Model.PersonalInfo;
-import View.*;
+import View.Screens.DoctorScreen;
+import View.Screens.NurseScreen;
+import View.Screens.RegistrationScreen;
+import View.Screens.UserScreen;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
-import users.GetDonorInfo;
-import users.GetPersonalInfo;
-import users.GetUserInfo;
+import Model.DataManagement.GetData.GetDonorInfo;
+import Model.DataManagement.GetData.GetPersonalInfo;
+import Model.DataManagement.GetData.GetUserInfo;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -72,8 +75,8 @@ public class LoginController {
                     Controller.SetScene(UserScreen.getscene());
                 }
             }
-        }catch(MyError myError){
-            myError.UsernameNotFoundAlert();
+        }catch(MyAlerts myAlerts){
+            myAlerts.UsernameNotFoundAlert();
         }
     }
 
@@ -82,13 +85,13 @@ public class LoginController {
      * @param userName
      * @param password
      */
-    private AbstractUser getUser(String userName, String password) throws MyError{
+    private AbstractUser getUser(String userName, String password) throws MyAlerts {
         for (AbstractUser abstractUser : users) {
             if (abstractUser.getUserName().equals(userName) && abstractUser.getPassword().equals(password)) {
                 return abstractUser;
             }
         }
-        throw new MyError(usernameTxtF.getText());
+        throw new MyAlerts(usernameTxtF.getText());
     }
 
     /**

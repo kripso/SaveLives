@@ -1,19 +1,23 @@
 package Controller;
 
 import Model.*;
-import View.NotifyUser;
+import View.AlertsAndNotifications.NotifyUser;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.Group;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import users.*;
+import Model.DataManagement.GetData.GetDonorInfo;
+import Model.DataManagement.GetData.GetPersonalInfo;
+import Model.DataManagement.GetData.GetUserInfo;
+import Model.DataManagement.SaveData.SaveUsers;
+
 import java.io.IOException;
 import java.util.ArrayList;
 /**
  * <h1>DoctorController</h1>
- * Controller ma za ulohu nastavovat patricne View podla toho kto sa prihlasi
+ * DoctorController pridana funkcionalita oproti sestrickam handluje tabulku a posiela spravy darcom
  * @author  Roland Rajcsanyi
  */
 public class DoctorController extends NurseController{

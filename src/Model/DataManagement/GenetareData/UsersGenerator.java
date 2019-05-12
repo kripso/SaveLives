@@ -1,4 +1,4 @@
-package users;
+package Model.DataManagement.GenetareData;
 
 import Model.AbstractUser;
 import Model.User;

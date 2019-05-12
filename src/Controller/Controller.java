@@ -1,8 +1,13 @@
 package Controller;
 
-import View.*;
+import View.Screens.*;
 import javafx.stage.Stage;
-import users.*;
+import Model.DataManagement.GenetareData.DonorInfoGenerator;
+import Model.DataManagement.GenetareData.PersonalInfoGenerator;
+import Model.DataManagement.GenetareData.UsersGenerator;
+import Model.DataManagement.SaveData.SaveDonorInfo;
+import Model.DataManagement.SaveData.SavePersonalInfo;
+import Model.DataManagement.SaveData.SaveUsers;
 
 import java.io.IOException;
 

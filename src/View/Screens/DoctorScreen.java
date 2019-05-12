@@ -1,22 +1,20 @@
-package View;
+package View.Screens;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+public class DoctorScreen {
 
-public class LoginScreen{
-
-    public LoginScreen(Stage PrimaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("LoginScreen.fxml"));
+    public DoctorScreen(Stage PrimaryStage) throws Exception{
+        Parent root = FXMLLoader.load(getClass().getResource("DoctorScreen.fxml"));
         Scene scene = new Scene(root);
 
         PrimaryStage.setScene(scene);
         PrimaryStage.show();
     }
     public static String getscene(){
-        return "LoginScene";
+        return "DoctorScene";
     }
-
 }

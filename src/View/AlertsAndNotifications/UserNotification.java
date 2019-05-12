@@ -1,4 +1,4 @@
-package View;
+package View.AlertsAndNotifications;
 
 import javafx.scene.control.Alert;
 

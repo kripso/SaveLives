@@ -1,6 +1,6 @@
-package users;
+package Model.DataManagement.SaveData;
 
-import Database.Data;
+import Model.Database.Data;
 import Model.AbstractUser;
 
 import java.io.*;

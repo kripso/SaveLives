@@ -1,9 +1,8 @@
-package users;
+package Model.DataManagement.SaveData;
 
-import Database.Data;
+import Model.Database.Data;
 import Model.DonorInfo;
-import Model.MyError;
-import Model.PersonalInfo;
+import Alerts.MyAlerts;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -55,7 +54,7 @@ public class SaveDonorInfo {
         out.close();
     }
 
-    public static void addDonorInfo(DonorInfo currentUser,String username) throws ClassNotFoundException, IOException, MyError {
+    public static void addDonorInfo(DonorInfo currentUser,String username) throws ClassNotFoundException, IOException, MyAlerts {
         ObjectInputStream in = new ObjectInputStream(new FileInputStream("DonorInfo.out"));
         boolean changed = false;
         ArrayList<DonorInfo> users = (ArrayList<DonorInfo>) in.readObject();
@@ -68,7 +67,7 @@ public class SaveDonorInfo {
             }
         }
         if (!changed){
-            throw new MyError(currentUser.getUsername());
+            throw new MyAlerts(currentUser.getUsername());
         }
         in.close();
 

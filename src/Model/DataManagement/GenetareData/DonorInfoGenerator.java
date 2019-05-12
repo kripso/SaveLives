@@ -1,7 +1,6 @@
-package users;
+package Model.DataManagement.GenetareData;
 
 import Model.DonorInfo;
-import Model.PersonalInfo;
 
 import java.util.ArrayList;
 import java.util.Random;
